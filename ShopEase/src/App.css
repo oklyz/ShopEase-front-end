@@ -20,3 +20,19 @@ header {
 header nav a {
   margin: 0 1em;
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.search-container form {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-in {
+  width: 100%;
+}
