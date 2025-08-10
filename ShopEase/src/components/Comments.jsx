@@ -46,6 +46,7 @@ const Comment = ({item}) => {
             value={formvalues.rate} 
             required/>
           </label>
+          <button className="comment-button">Send</button>
         </form>
       </div>
     </>
