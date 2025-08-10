@@ -17,6 +17,10 @@ const Home = () => {
     handleItems()
   },[])
   
+  if (!getitem) {
+    return <h1>loding ...</h1>
+  }
+
   const filterArray = (array) => {
     let newArray = array
     const filtered = newArray.filter((data) => {
