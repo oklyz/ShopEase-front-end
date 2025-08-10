@@ -149,3 +149,18 @@ header nav a {
     margin-top: 2px;
   }
 }
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.search-container form {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-in {
+  width: 100%;
+}
