@@ -1,15 +1,18 @@
 import UserContext from '../contexts/UserContext'
 import { getUserOrders } from '../services/order'
 import { useEffect, useContext, useState } from 'react'
-import OrderDetails from '../components/OrderDetails'
+import { useOrders } from '../contexts/OrdersContext'
+import { Link } from 'react-router-dom'
 const OrderList = () => {
-  const [UserOrder, setUserOrder] = useState(null)
+  const [UserOrder, setUserOrders] = useState(null)
+  const { orders, setOrders } = useOrders()
   const { user } = useContext(UserContext)
 
   useEffect(() => {
     const OrdersLists = async () => {
       const Orders = await getUserOrders(user.id)
-      setUserOrder(Orders)
+      setUserOrders(Orders)
+      setOrders(Orders)
     }
     user && OrdersLists()
   }, [user])
@@ -23,11 +26,15 @@ const OrderList = () => {
           // console.log(UserOrder.orders[0])
           // console.log(UserOrder.orders[0].items[0])
 
-          UserOrder.orders.map((order) => {
+          UserOrder.orders.map((order, index) => {
             return (
-              <div className="OrdersList" key={order._id}>
-                <OrderDetails order={order} />
-              </div>
+              <Link to={`/profile/order/${index}`} className="orderlink">
+                <div className="OrdersList" key={order._id}>
+                  <h2>Order No: {index + 1}</h2>
+                  <h2>Date: {order.date}</h2>
+                  <h2>Number of Items: {order.items.length}</h2>
+                </div>
+              </Link>
             )
           })
 

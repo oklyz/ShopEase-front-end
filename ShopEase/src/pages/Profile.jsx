@@ -4,7 +4,6 @@ import { useEffect, useContext, useState } from 'react'
 import OrderList from '../components/OrderList'
 const Profile = () => {
   const [UserData, setUserData] = useState(null)
-
   const { user } = useContext(UserContext)
 
   useEffect(() => {

@@ -12,7 +12,8 @@ import Profile from './pages/Profile'
 import { useContext, useEffect } from 'react'
 import UserContext from './contexts/UserContext'
 import { CheckSession } from './services/Auth'
-
+import OrderDetails from './components/OrderDetails'
+import { OrdersProvider } from './contexts/OrdersContext'
 function App() {
   const { setUser } = useContext(UserContext)
 
@@ -34,20 +35,26 @@ function App() {
     <>
       <Header />
       <main>
-        <Routes>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+        <OrdersProvider>
+          <Routes>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
 
-          {/* customer routes */}
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/itemdetails" element={<ItemDetails />}></Route>
-          <Route path="/contact" element={<ContactAs />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+            {/* customer routes */}
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/itemdetails" element={<ItemDetails />}></Route>
+            <Route path="/contact" element={<ContactAs />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route
+              path="/profile/order/:index"
+              element={<OrderDetails />}
+            ></Route>
 
-          {/* admin routes */}
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-        </Routes>
+            {/* admin routes */}
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+          </Routes>
+        </OrdersProvider>
       </main>
     </>
   )
