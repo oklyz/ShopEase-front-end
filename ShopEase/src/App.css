@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Nav bar */
+a {
+  color: #eee;
+  text-decoration: none;
+}
+
+header {
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+}
+
+header nav a {
+  margin: 0 1em;
+}
