@@ -9,9 +9,13 @@ import Dashboard from './pages/Deashboard'
 import ContactAs from './pages/ContactAs'
 import ItemDetails from './pages/ItemDetails'
 import Profile from './pages/Profile'
+import Issues from './pages/Issues'
 import { useContext, useEffect } from 'react'
 import UserContext from './contexts/UserContext'
 import { CheckSession } from './services/Auth'
+import AdminItems from './pages/AdminItems'
+import ItemForm from './components/ItemForm'
+
 
 function App() {
   const { setUser } = useContext(UserContext)
@@ -19,7 +23,7 @@ function App() {
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const user = await CheckSession()
-    console.log(user)
+
     setUser(user)
   }
 
@@ -47,6 +51,9 @@ function App() {
 
           {/* admin routes */}
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/issues" element={<Issues />}></Route>
+          <Route path="/adminitems" element={ <AdminItems /> }></Route>
+          <Route path="/adminitems/new" element={ <ItemForm /> }></Route>
         </Routes>
       </main>
     </>

@@ -20,3 +20,8 @@ header {
 header nav a {
   margin: 0 1em;
 }
+
+.dark-btn {
+  color: rgb(0, 37, 160);
+  text-decoration: underline;
+}
