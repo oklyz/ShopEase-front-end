@@ -1,5 +1,6 @@
 import { useOrders } from '../contexts/OrdersContext'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const OrderDetails = () => {
   const { orders } = useOrders()
@@ -14,6 +15,9 @@ const OrderDetails = () => {
           <div className="items" key={items._id}>
             <h2>Item Name: {items.name}</h2>
             <h2>Price: {items.price}</h2>
+            <Link to="">
+              <button>Issue</button>
+            </Link>
           </div>
         )
       })}

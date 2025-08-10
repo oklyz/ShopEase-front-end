@@ -9,6 +9,7 @@ import Dashboard from './pages/Deashboard'
 import ContactAs from './pages/ContactAs'
 import ItemDetails from './pages/ItemDetails'
 import Profile from './pages/Profile'
+import Issue from './components/Issue'
 import { useContext, useEffect } from 'react'
 import UserContext from './contexts/UserContext'
 import { CheckSession } from './services/Auth'
@@ -50,6 +51,7 @@ function App() {
               path="/profile/order/:index"
               element={<OrderDetails />}
             ></Route>
+            <Route path="/issue/:order" element={<Issue />}></Route>
 
             {/* admin routes */}
             <Route path="/dashboard" element={<Dashboard />}></Route>
