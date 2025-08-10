@@ -51,7 +51,7 @@ function App() {
               path="/profile/order/:index"
               element={<OrderDetails />}
             ></Route>
-            <Route path="/issue/:order" element={<Issue />}></Route>
+            <Route path="/issue/:orderId" element={<Issue />}></Route>
 
             {/* admin routes */}
             <Route path="/dashboard" element={<Dashboard />}></Route>

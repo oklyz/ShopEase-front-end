@@ -15,7 +15,7 @@ const OrderDetails = () => {
           <div className="items" key={items._id}>
             <h2>Item Name: {items.name}</h2>
             <h2>Price: {items.price}</h2>
-            <Link to="">
+            <Link to={`/issue/${orders.orders[index]._id}`}>
               <button>Issue</button>
             </Link>
           </div>
