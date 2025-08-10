@@ -16,7 +16,8 @@ import { CheckSession } from './services/Auth'
 import AdminItems from './pages/AdminItems'
 import ItemForm from './components/ItemForm'
 
-
+import OrderDetails from './components/OrderDetails'
+import { OrdersProvider } from './contexts/OrdersContext'
 function App() {
   const { setUser } = useContext(UserContext)
 
@@ -38,23 +39,29 @@ function App() {
     <>
       <Header />
       <main>
-        <Routes>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+        <OrdersProvider>
+          <Routes>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
 
-          {/* customer routes */}
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/itemdetails" element={<ItemDetails />}></Route>
-          <Route path="/contact" element={<ContactAs />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+            {/* customer routes */}
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/itemdetails" element={<ItemDetails />}></Route>
+            <Route path="/contact" element={<ContactAs />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route
+              path="/profile/order/:index"
+              element={<OrderDetails />}
+            ></Route>
 
-          {/* admin routes */}
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/issues" element={<Issues />}></Route>
-          <Route path="/adminitems" element={ <AdminItems /> }></Route>
-          <Route path="/adminitems/new" element={ <ItemForm /> }></Route>
-        </Routes>
+            {/* admin routes */}
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/issues" element={<Issues />}></Route>
+            <Route path="/adminitems" element={<AdminItems />}></Route>
+            <Route path="/adminitems/new" element={<ItemForm />}></Route>
+          </Routes>
+        </OrdersProvider>
       </main>
     </>
   )
