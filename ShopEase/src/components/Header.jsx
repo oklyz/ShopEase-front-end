@@ -31,7 +31,7 @@ const Nav = () => {
       <Link to="/login" onClick={handleLogOut}>
         log out
       </Link>
-      <Link to="">Profile</Link>
+      <Link to="/profile">Profile</Link>
     </nav>
   )
 
