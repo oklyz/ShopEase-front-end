@@ -19,7 +19,7 @@ function App() {
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const user = await CheckSession()
-    console.log(user)
+
     setUser(user)
   }
 

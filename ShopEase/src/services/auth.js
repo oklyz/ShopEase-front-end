@@ -19,6 +19,26 @@ export const SignInUser = async (data) => {
     throw error
   }
 }
+export const UserInfo = async (data) => {
+  try {
+    const res = await Client.get(`/auth/${data}`)
+    // Set the current signed in users token to localStorage
+
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+export const UserUpdata = async (data) => {
+  try {
+    const res = await Client.put(`/auth/${data}`)
+    // Set the current signed in users token to localStorage
+
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
 
 export const CheckSession = async () => {
   try {
