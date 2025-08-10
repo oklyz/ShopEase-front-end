@@ -1,4 +1,4 @@
-const Search = ({ handleChange, handleSubmit }) => {
+const Search = ({ handleChange, handleSubmit, filterArray }) => {
   
   return(
     <>
