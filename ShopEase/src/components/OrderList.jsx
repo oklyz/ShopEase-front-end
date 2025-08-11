@@ -13,7 +13,6 @@ const OrderList = () => {
     }
     user && OrdersLists()
   }, [user])
-  orders && console.log(orders)
   return (
     <>
       {!UserOrder ? (

@@ -66,10 +66,6 @@ function App() {
               <Route path="/itemdetails" element={<ItemDetails />}></Route>
               <Route path="/contact" element={<ContactAs />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
-              <Route
-                path="/profile/order/:index"
-                element={<OrderDetails />}
-              ></Route>
             </>
           )}
         </Routes>
