@@ -17,6 +17,7 @@ import { CheckSession } from './services/Auth'
 import AdminItems from './pages/AdminItems'
 import ItemForm from './components/ItemForm'
 import UserUpadataInfo from './components/UserUpadataInfo'
+import Checkout from './pages/Checkout'
 
 import OrderDetails from './components/OrderDetails'
 import { OrdersProvider } from './contexts/OrdersContext'
@@ -51,6 +52,7 @@ function App() {
             <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
+            <Route path="/itemdetails/:itemId/:quantity" element={<Checkout />}></Route>
             <Route path="/contact" element={<ContactAs />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route

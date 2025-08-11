@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import UserContext from '../contexts/UserContext'
 import { getItemById } from '../services/item'
@@ -33,19 +33,23 @@ const ItemDetails = () => {
               <p>{item.category}</p>
 
               <div>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
-                  +
-                </button>
-                <span>{quantity}</span>
                 <button onClick={() => setQuantity((quantity) => quantity - 1)}>
                   -
+                </button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                  +
                 </button>
               </div>
 
               <br />
               <div>
                 <button>add to Cart</button>
-                <button>checkout</button>
+
+                {/* <Link to={`/itemdetails/:quantity`}> <Link/> */}
+                <Link to={`/itemdetails/${item._id}/${quantity}`}>
+                  <button>checkout</button>
+                </Link>
               </div>
             </div>
             <br />
