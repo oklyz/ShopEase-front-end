@@ -3,14 +3,14 @@ import { CreateComment } from "../services/comment"
 import { useNavigate } from "react-router-dom"
 import UserContext from "../contexts/UserContext"
 
-const Comment = ({item}) => {
+const CommentsForm = ({itemId}) => {
   const { user } = useContext(UserContext)
   let navigate = useNavigate()
   const initialState = {
     description: "",
     rate: 0,
     userId: user.id,
-    itemId: item._id  
+    itemId: itemId 
   }
 
   const [formvalues, setFormValues] = useState(initialState)
@@ -23,7 +23,7 @@ const Comment = ({item}) => {
     e.preventDefault()
     CreateComment(formvalues)
     setFormValues(initialState)
-    navigate("/itemdetails")
+    navigate(`/itemdetails/${itemId}`)
   }
 
   return(
@@ -40,6 +40,8 @@ const Comment = ({item}) => {
           </label>
           <label htmlFor="rate">
             <input 
+            min={0}
+            max={5}
             type="number" 
             name="rate" 
             onChange={handleChange} 
@@ -53,4 +55,4 @@ const Comment = ({item}) => {
   )
 }
 
-export default Comment
+export default CommentsForm
