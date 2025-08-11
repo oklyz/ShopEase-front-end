@@ -2,13 +2,15 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState,useContext } from "react"
 import UserContext from "../contexts/UserContext"
 import { getItemById } from "../services/item"
-import Comment from "../components/Comments"
+import CommentsForm from "../components/CommentsForm"
+import DisplayComments from "../components/DisplayComments"
+
 const ItemDetails = () => {
 const {user}=useContext(UserContext)
   let {itemId} = useParams()
   console.log(itemId)
 
-  const [item,setItem]=useState()
+  const [item,setItem]=useState(null)
 useEffect(()=> {
   const getItemDetails=async()=>{
     const itemdetails= await getItemById(itemId)  
@@ -18,11 +20,13 @@ useEffect(()=> {
 getItemDetails()
 },[])
 
+item && console.log(item.comments[0])
+
 
   return(
     
     <>
-<div>
+<div key={itemId}>
 {item ? (<>
 <h1>{item.name}</h1>
 <h2>{item.description}</h2>
@@ -30,8 +34,16 @@ getItemDetails()
 <p>{item.quantity}</p>
 <p>{item.category}</p>
 <img src={item.image} alt="itemImage" />
-{user.role==='customer' ? (<Comment itemId={item._id}/>) :null}
-</>) :
+{user.role==='customer' ? (<CommentsForm itemId={item._id}/>) :null}
+
+{item.comments.map((comment)=>(
+<DisplayComments  comment={comment} key={comment._id}/>
+
+)
+)}
+
+</> 
+) :
 
 <h1>item not exist</h1>}
 

@@ -3,7 +3,7 @@ import { CreateComment } from "../services/comment"
 import { useNavigate } from "react-router-dom"
 import UserContext from "../contexts/UserContext"
 
-const Comment = ({itemId}) => {
+const CommentsForm = ({itemId}) => {
   const { user } = useContext(UserContext)
   let navigate = useNavigate()
   const initialState = {
@@ -55,4 +55,4 @@ const Comment = ({itemId}) => {
   )
 }
 
-export default Comment
+export default CommentsForm
