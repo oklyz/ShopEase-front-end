@@ -1,53 +1,67 @@
-import { useParams } from "react-router-dom"
-import { useEffect, useState,useContext } from "react"
-import UserContext from "../contexts/UserContext"
-import { getItemById } from "../services/item"
-import CommentsForm from "../components/CommentsForm"
-import DisplayComments from "../components/DisplayComments"
+import { useParams } from 'react-router-dom'
+import { useEffect, useState, useContext } from 'react'
+import UserContext from '../contexts/UserContext'
+import { getItemById } from '../services/item'
+import CommentsForm from '../components/CommentsForm'
+import DisplayComments from '../components/DisplayComments'
 
 const ItemDetails = () => {
-const {user}=useContext(UserContext)
-  let {itemId} = useParams()
-  console.log(itemId)
+  let { itemId } = useParams()
+  const { user } = useContext(UserContext)
+  const [item, setItem] = useState(null)
+  let [quantity, setQuantity] = useState(0)
 
-  const [item,setItem]=useState(null)
-useEffect(()=> {
-  const getItemDetails=async()=>{
-    const itemdetails= await getItemById(itemId)  
-  setItem(itemdetails)
+  useEffect(() => {
+    const getItemDetails = async () => {
+      const itemdetails = await getItemById(itemId)
+      setItem(itemdetails)
+    }
+    getItemDetails()
+  }, [])
 
-  }
-getItemDetails()
-},[])
-
-item && console.log(item.comments[0])
-
-
-  return(
-    
+  return (
     <>
-<div key={itemId}>
-{item ? (<>
-<h1>{item.name}</h1>
-<h2>{item.description}</h2>
-<p>{item.price}</p>
-<p>{item.quantity}</p>
-<p>{item.category}</p>
-<img src={item.image} alt="itemImage" />
-{user.role==='customer' ? (<CommentsForm itemId={item._id}/>) :null}
+      <div>
+        {item ? (
+          <>
+            <div>
+              <img src={item.image} alt="itemImage" />
+              <h1>{item.name}</h1>
+              <h2>{item.description}</h2>
+              <p>{item.price}</p>
+              <p>{item.quantity}</p>
+              <p>{item.category}</p>
 
-{item.comments.map((comment)=>(
-<DisplayComments  comment={comment} key={comment._id}/>
+              <div>
+                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                  +
+                </button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity((quantity) => quantity - 1)}>
+                  -
+                </button>
+              </div>
 
-)
-)}
+              <br />
+              <div>
+                <button>add to Cart</button>
+                <button>checkout</button>
+              </div>
+            </div>
+            <br />
+            <br />
+            {user.role === 'customer' ? (
+              <CommentsForm itemId={item._id} />
+            ) : null}
 
-</> 
-) :
-
-<h1>item not exist</h1>}
-
-</div>
+            {item.comments.map((comment) => (
+              <DisplayComments comment={comment} key={comment._id} />
+            ))}
+          </>
+        ) : (
+          <h1>item not exist</h1>
+        )}
+      </div>
     </>
   )
 }
