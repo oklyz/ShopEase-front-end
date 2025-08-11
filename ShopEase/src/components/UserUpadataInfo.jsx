@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo, UserUpdata } from '../services/Auth'
+import UserAddresses from './UserAddresses'
 const UserUpadataInfo = () => {
   const [UserData, setUserData] = useState(null)
 
@@ -46,48 +47,63 @@ const UserUpadataInfo = () => {
   }
   return (
     <>
-      <div className="fromupdata">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">name :</label>
-          <input
-            id="name"
-            name="name"
-            placeholder={UserData && UserData.name}
-            ref={nameRef}
-            required
-          ></input>
-          <br></br>
-          <label htmlFor="email">email : </label>
-          <input
-            id="email"
-            name="email"
-            placeholder={UserData && UserData.email}
-            ref={emailRef}
-            required
-          ></input>
-          <br></br>
-          <label htmlFor="password">password :</label>
-          <input
-            type="password"
-            id="passwordRef"
-            name="passwordRef"
-            ref={passwordRef}
-            required
-          ></input>
-          <br></br>
-          <label htmlFor="ConformpasswordRef">Conform password :</label>
-          <input
-            type="password"
-            id="ConformpasswordRef"
-            name="ConformpasswordRef"
-            ref={ConformpasswordRef}
-            required
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      {UserData ? (
+        <>
+          <div className="fromupdata"></div>
+          <div className="fromupdata">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="name">name :</label>
+              <input
+                id="name"
+                name="name"
+                placeholder={UserData && UserData.name}
+                ref={nameRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="email">email : </label>
+              <input
+                id="email"
+                name="email"
+                placeholder={UserData && UserData.email}
+                ref={emailRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="password">password :</label>
+              <input
+                type="password"
+                id="passwordRef"
+                name="passwordRef"
+                ref={passwordRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="ConformpasswordRef">Conform password :</label>
+              <input
+                type="password"
+                id="ConformpasswordRef"
+                name="ConformpasswordRef"
+                ref={ConformpasswordRef}
+                required
+              ></input>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
 
-      <div className="userAddressUpdata"></div>
+          <div className="userAddressUpdata">
+            {UserData.addresses.length > 0 ? (
+              <UserAddresses addresses={UserData.addresses} />
+            ) : (
+              <h2>No addresses</h2>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div>loading..</div>
+        </>
+      )}
     </>
   )
 }
