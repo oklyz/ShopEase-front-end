@@ -8,3 +8,12 @@ export const GetItems = async () => {
     throw error
   }
 }
+export const getItemById=async (itemId)=>{
+  try {
+        const res=await Client.get(`/item/${itemId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+
+  }
