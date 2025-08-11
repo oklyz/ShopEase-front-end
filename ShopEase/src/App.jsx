@@ -17,13 +17,7 @@ import { CheckSession } from './services/Auth'
 import AdminItems from './pages/AdminItems'
 import ItemForm from './components/ItemForm'
 import UserUpadataInfo from './components/UserUpadataInfo'
-<<<<<<< HEAD
-=======
 import Checkout from './pages/Checkout'
-
-import OrderDetails from './components/OrderDetails'
-import { OrdersProvider } from './contexts/OrdersContext'
->>>>>>> a77a09df0b2c95fd8fd3b80e338fadc54d9de414
 function App() {
   const { user, setUser } = useContext(UserContext)
 
@@ -49,30 +43,18 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
 
-<<<<<<< HEAD
           {/* customer routes */}
           <Route path="/" element={<Home />}></Route>
           <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
+          <Route
+            path="/itemdetails/:itemId/:quantity"
+            element={<Checkout />}
+          ></Route>
           <Route path="/contact" element={<ContactAs />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/issue/:orderId" element={<Issueform />}></Route>
-=======
-            {/* customer routes */}
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-            <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
-            <Route path="/itemdetails/:itemId/:quantity" element={<Checkout />}></Route>
-            <Route path="/contact" element={<ContactAs />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route
-              path="/profile/order/:index"
-              element={<OrderDetails />}
-            ></Route>
-            <Route path="/issue/:orderId" element={<Issueform />}></Route>
->>>>>>> a77a09df0b2c95fd8fd3b80e338fadc54d9de414
 
           {/* admin routes */}
           {user && user.role === 'admin' ? (
