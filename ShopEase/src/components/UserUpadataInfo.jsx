@@ -1,12 +1,23 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useRef } from 'react'
-import { UserUpdata } from '../services/Auth'
 import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
+import { UserInfo, UserUpdata } from '../services/Auth'
 const UserUpadataInfo = () => {
+  const [UserData, setUserData] = useState(null)
+
   const { user } = useContext(UserContext)
   const redirect = useNavigate()
 
+  useEffect(() => {
+    const userdata = async () => {
+      const data = await UserInfo(user.id)
+      setUserData(data)
+    }
+    user && userdata()
+  }, [user])
+
+  UserData && console.log(UserData)
   const name = useRef(null)
   const email = useRef(null)
   const password = useRef(null)
@@ -16,7 +27,7 @@ const UserUpadataInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const Issue = async (data) => {
+    const updata = async (data) => {
       await UserUpdata(data)
     }
 
@@ -28,13 +39,15 @@ const UserUpadataInfo = () => {
       image: image,
       addresses: addresses
     }
-    payload && Issue(payload)
-    alert('The issue send to the admin ')
+    // payload && updata(payload)
+    alert('The user updata')
     redirect('/')
   }
   return (
     <>
-      <h1>user updata</h1>
+      <div className="fromupdata"></div>
+
+      <div className="userAddressUpdata"></div>
     </>
   )
 }

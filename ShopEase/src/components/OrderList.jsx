@@ -24,8 +24,12 @@ const OrderList = () => {
       ) : (
         UserOrder.orders.map((order, index) => {
           return (
-            <Link to={`/profile/order/${index}`} className="orderlink">
-              <div className="OrdersList" key={order._id}>
+            <Link
+              to={`/profile/order/${index}`}
+              className="orderlink"
+              key={order._id}
+            >
+              <div className="OrdersList">
                 <h2>Order No: {index + 1}</h2>
                 <h2>Date: {order.date.split('T')[0]}</h2>
                 <h2>Number of Items: {order.items.length}</h2>
