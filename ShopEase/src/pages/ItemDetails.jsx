@@ -12,7 +12,6 @@ const ItemDetails = () => {
   let [quantity, setQuantity] = useState(0)
   let checkUserRole
   user ? (checkUserRole = user.role) : (checkUserRole = true)
-  console.log(itemId)
 
   useEffect(() => {
     const getItemDetails = async () => {
@@ -31,8 +30,9 @@ const ItemDetails = () => {
               <img
                 src={`http://localhost:3001/images/${item.image}`}
                 alt="itemImage"
+                width={100}
+                height={100}
               />
-              {console.log(item.image)}
               <h1>{item.name}</h1>
               <h2>{item.description}</h2>
               <p>{item.price}</p>
@@ -40,11 +40,11 @@ const ItemDetails = () => {
               <p>{item.category}</p>
 
               <div>
-                <button onClick={() => setQuantity((quantity) => quantity - 1)}>
+                <button disabled={quantity <= 0} onClick={() => setQuantity((quantity) => quantity - 1)}>
                   -
                 </button>
                 <span>{quantity}</span>
-                <button onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button disabled={item.quantity <= quantity} onClick={() => setQuantity((quantity) => quantity + 1)}>
                   +
                 </button>
               </div>

@@ -10,6 +10,16 @@ export const getUserOrders = async (data) => {
   }
 }
 
+export const createOrder = async (data) => {
+  try {
+    const res = await Client.post('/order/new', data)
+    console.log(`createOrder res.data:`)
+    console.log(res.data)
+  } catch (error) {
+    throw error
+  }
+}
+
 export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
