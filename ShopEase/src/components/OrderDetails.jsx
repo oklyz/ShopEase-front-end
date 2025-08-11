@@ -5,22 +5,18 @@ import { Link } from 'react-router-dom'
 const OrderDetails = () => {
   const { orders } = useOrders()
   const { index } = useParams()
-
-  console.log(orders.orders[index])
-
+  orders && console.log(orders.orders)
   return (
     <>
-      {orders.orders[index].items.map((items, index) => {
-        return (
-          <div className="items" key={items._id}>
-            <h2>Item Name: {items.name}</h2>
-            <h2>Price: {items.price}</h2>
-            <Link to={`/issue/${orders.orders[index]._id}`}>
-              <button>Issue</button>
-            </Link>
-          </div>
-        )
-      })}
+      {/* orders.orders.items. */}
+
+      {/* <div className="items" key={items._id}>
+        <h2>Item Name: {orders.orders.items.name}</h2>
+        <h2>Price: {orders.orders.items.price}</h2>
+        <Link to={`/issue/${orders.orders.items._id}`}>
+          <button>Issue</button>
+        </Link>
+      </div> */}
     </>
   )
 }
