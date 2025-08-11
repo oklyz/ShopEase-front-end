@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo, UserUpdata } from '../services/Auth'
+import UserAddresses from './UserAddresses'
 const UserUpadataInfo = () => {
   const [UserData, setUserData] = useState(null)
 
@@ -45,9 +46,23 @@ const UserUpadataInfo = () => {
   }
   return (
     <>
-      <div className="fromupdata"></div>
+      {UserData ? (
+        <>
+          <div className="fromupdata"></div>
 
-      <div className="userAddressUpdata"></div>
+          <div className="userAddressUpdata">
+            {
+              UserData.addresses.length > 0 ? 
+              <UserAddresses addresses ={UserData.addresses}/> :
+              <h2>No addresses</h2>
+            }
+          </div>
+        </>
+      ) : (
+        <>
+          <div>loading..</div>
+        </>
+      )}
     </>
   )
 }
