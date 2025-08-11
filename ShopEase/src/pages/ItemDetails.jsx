@@ -4,7 +4,6 @@ import UserContext from '../contexts/UserContext'
 import { getItemById } from '../services/item'
 import CommentsForm from '../components/CommentsForm'
 import DisplayComments from '../components/DisplayComments'
-import { BASE_URL } from '../services/api'
 
 const ItemDetails = () => {
   let { itemId } = useParams()
@@ -29,8 +28,10 @@ const ItemDetails = () => {
         {item ? (
           <>
             <div>
-              {/* <img src={item.image} alt="itemImage" /> */}
-              <img src={`${BASE_URL}/images/${item.image}`} alt="itemImage" />
+              <img
+                src={`http://localhost:3001/images/${item.image}`}
+                alt="itemImage"
+              />
               {console.log(item.image)}
               <h1>{item.name}</h1>
               <h2>{item.description}</h2>
@@ -52,7 +53,6 @@ const ItemDetails = () => {
               <div>
                 <button>add to Cart</button>
 
-                {/* <Link to={`/itemdetails/:quantity`}> <Link/> */}
                 <Link to={`/itemdetails/${item._id}/${quantity}`}>
                   <button>checkout</button>
                 </Link>
@@ -60,10 +60,10 @@ const ItemDetails = () => {
             </div>
             <br />
             <br />
-            {user.role === 'customer' ? (
+
+            {checkUserRole === 'customer' && checkUserRole ? (
               <CommentsForm itemId={item._id} />
             ) : null}
-
             {item.comments.map((comment) => (
               <DisplayComments comment={comment} key={comment._id} />
             ))}
