@@ -168,3 +168,8 @@ header nav a {
 .search-in {
   width: 100%;
 }
+
+/* item.jsx */
+.item-detail-link{
+color: black;
+}

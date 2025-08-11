@@ -50,7 +50,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
-            <Route path="/itemdetails" element={<ItemDetails />}></Route>
+            <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
             <Route path="/contact" element={<ContactAs />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route
