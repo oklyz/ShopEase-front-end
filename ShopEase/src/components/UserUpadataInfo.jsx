@@ -18,6 +18,7 @@ const UserUpadataInfo = () => {
     user && userdata()
   }, [user])
 
+  UserData && console.log(UserData)
   const nameRef = useRef(null)
   const emailRef = useRef(null)
   const passwordRef = useRef(null)

@@ -4,12 +4,16 @@ import UserContext from '../contexts/UserContext'
 import { getItemById } from '../services/item'
 import CommentsForm from '../components/CommentsForm'
 import DisplayComments from '../components/DisplayComments'
+import { BASE_URL } from '../services/api'
 
 const ItemDetails = () => {
   let { itemId } = useParams()
   const { user } = useContext(UserContext)
   const [item, setItem] = useState(null)
   let [quantity, setQuantity] = useState(0)
+  let checkUserRole
+  user ? (checkUserRole = user.role) : (checkUserRole = true)
+  console.log(itemId)
 
   useEffect(() => {
     const getItemDetails = async () => {
@@ -25,7 +29,9 @@ const ItemDetails = () => {
         {item ? (
           <>
             <div>
-              <img src={item.image} alt="itemImage" />
+              {/* <img src={item.image} alt="itemImage" /> */}
+              <img src={`${BASE_URL}/images/${item.image}`} alt="itemImage" />
+              {console.log(item.image)}
               <h1>{item.name}</h1>
               <h2>{item.description}</h2>
               <p>{item.price}</p>
