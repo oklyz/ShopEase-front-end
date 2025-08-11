@@ -35,7 +35,7 @@ const ItemDetails = () => {
             <p>{item.price}</p>
             <p>{item.quantity}</p>
             <p>{item.category}</p>
-            <img src={item.image} alt="itemImage" />
+            <img src={`http://localhost:3001/images/${item.image}`} alt="itemImage" />
             {(checkUserRole === "customer" && checkUserRole) ? (
               <CommentsForm itemId={item._id} />
             ) : null}
