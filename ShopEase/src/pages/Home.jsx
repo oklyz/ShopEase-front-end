@@ -2,12 +2,13 @@ import Search from '../components/Search'
 import { useState, useEffect } from 'react'
 import { GetItems } from '../services/item'
 import Items from '../components/Items'
-
+import MostSales from '../components/MostSales'
 const Home = () => {
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState()
   const [getitem, setGetItem] = useState([])
-  const [toggle, setToggle] = useState(false)
+  const [toggleSearch, setToggleSearch] = useState(false)
+  const [toggleMostSales, setToggleMostSales] = useState(false)
   useEffect(() => {
     const handleItems = async () => {
       const data = await GetItems()
@@ -32,7 +33,12 @@ const Home = () => {
     e.preventDefault()
     setSearchResult(filterArray(getitem))
     setSearch('')
-    setToggle(true)
+    setToggleSearch(true)
+  }
+
+  const handleSubmitMostSales = async () => {
+    setToggleSearch(false)
+    setToggleMostSales(!toggleMostSales)
   }
 
   const handleChange = (e) => {
@@ -43,9 +49,12 @@ const Home = () => {
   return (
     <>
       <div>
-        <Search handleChange={handleChange} handleSubmit={handleSubmit} />
+        <Search handleChange={handleChange} handleSubmit={handleSubmit} search={search}/>
       </div>
-      {toggle ? (
+      <div>
+        <button onClick={handleSubmitMostSales}>MostSales</button>
+      </div>
+      {toggleSearch ? (
         <div>
           {searchResult.map((item) => (
             <Items item={item} key={item._id} />
@@ -53,9 +62,17 @@ const Home = () => {
         </div>
       ) : (
         <div>
+          {toggleMostSales ? (
+            <>
+            <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
+            </>
+          ) : 
+          <>
           {getitem.map((item) => (
             <Items item={item} key={item._id} />
           ))}
+          </>
+          }
         </div>
       )}
     </>
