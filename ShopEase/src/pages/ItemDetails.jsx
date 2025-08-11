@@ -20,7 +20,19 @@ getItemDetails()
   return(
     
     <>
+<div>
+{item ? (<>
+<h1>{item.name}</h1>
+<h2>{item.description}</h2>
+<p>{item.price}</p>
+<p>{item.quantity}</p>
+<p>{item.category}</p>
+<img src={item.image} alt="itemImage" />
+</>) :
 
+<h1>item not exist</h1>}
+
+</div>
     </>
   )
 }
