@@ -2,7 +2,10 @@ import Client from './api'
 
 export const createItem = async (data) => {
   try {
-    const res = await Client.post('/item/new', data)
+       const config = {headers: {'Content-Type': 'multipart/form-data'}}
+       
+    const res = await Client.post('/item/new', data,config)
+    
     console.log(res)
   } catch (error) {
     throw error

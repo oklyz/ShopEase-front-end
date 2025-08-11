@@ -4,6 +4,7 @@ import UserContext from "../contexts/UserContext"
 import { getItemById } from "../services/item"
 import CommentsForm from "../components/CommentsForm"
 import DisplayComments from "../components/DisplayComments"
+import {BASE_URL} from "../services/api"
 
 const ItemDetails = () => {
   const { user } = useContext(UserContext)
@@ -38,7 +39,6 @@ const ItemDetails = () => {
             {(checkUserRole === "customer" && checkUserRole) ? (
               <CommentsForm itemId={item._id} />
             ) : null}
-
             {item.comments.map((comment) => (
               <DisplayComments comment={comment} key={comment._id} />
             ))}
