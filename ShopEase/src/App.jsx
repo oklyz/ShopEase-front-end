@@ -9,6 +9,7 @@ import Dashboard from './pages/Deashboard'
 import ContactAs from './pages/ContactAs'
 import ItemDetails from './pages/ItemDetails'
 import Profile from './pages/Profile'
+import Issueform from './components/Issueform'
 import Issues from './pages/Issues'
 import { useContext, useEffect } from 'react'
 import UserContext from './contexts/UserContext'
@@ -45,19 +46,16 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
 
             {/* customer routes */}
-            {/* {user && user.role === 'customer' && (
-              <>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/cart" element={<Cart />}></Route>
-                <Route path="/itemdetails" element={<ItemDetails />}></Route>
-                <Route path="/contact" element={<ContactAs />}></Route>
-                <Route path="/profile" element={<Profile />}></Route>
-                <Route
-                  path="/profile/order/:index"
-                  element={<OrderDetails />}
-                ></Route>
-              </>
-            )} */}
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/itemdetails" element={<ItemDetails />}></Route>
+            <Route path="/contact" element={<ContactAs />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route
+              path="/profile/order/:index"
+              element={<OrderDetails />}
+            ></Route>
+            <Route path="/issue/:orderId" element={<Issueform />}></Route>
 
             {/* admin routes */}
             {user && user.role === 'admin' ? (
