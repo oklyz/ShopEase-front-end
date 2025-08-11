@@ -29,9 +29,9 @@ export const UserInfo = async (data) => {
     throw error
   }
 }
-export const UserUpdata = async (data) => {
+export const UserUpdata = async (userId, data) => {
   try {
-    const res = await Client.put(`/auth/${data}`)
+    const res = await Client.put(`/auth/${userId}`, data)
     // Set the current signed in users token to localStorage
 
     return res.data

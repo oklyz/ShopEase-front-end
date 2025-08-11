@@ -18,44 +18,85 @@ const UserUpadataInfo = () => {
     user && userdata()
   }, [user])
 
-  UserData && console.log(UserData)
-  const name = useRef(null)
-  const email = useRef(null)
-  const password = useRef(null)
-  const image = useRef(null)
-  const addresses = useRef(null)
+  const nameRef = useRef(null)
+  const emailRef = useRef(null)
+  const passwordRef = useRef(null)
+  const ConformpasswordRef = useRef(null)
+  const imageRef = useRef(null)
   let payload = {}
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const updata = async (data) => {
-      await UserUpdata(data)
-    }
 
-    payload = {
-      _id: user.id,
-      name: name,
-      email: email,
-      passwordDigest: password,
-      image: image,
-      addresses: addresses
+    const updata = async (userId, data) => {
+      await UserUpdata(userId, data)
     }
-    // payload && updata(payload)
-    alert('The user updata')
-    redirect('/')
+    if (passwordRef.current.value !== ConformpasswordRef.current.value) {
+      alert('password not match!')
+    } else {
+      payload = {
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value
+        // image: imageRef.current.value,
+      }
+      payload && updata(user.id, payload)
+      alert('The user updata')
+      redirect('/')
+    }
   }
   return (
     <>
       {UserData ? (
         <>
           <div className="fromupdata"></div>
+          <div className="fromupdata">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="name">name :</label>
+              <input
+                id="name"
+                name="name"
+                placeholder={UserData && UserData.name}
+                ref={nameRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="email">email : </label>
+              <input
+                id="email"
+                name="email"
+                placeholder={UserData && UserData.email}
+                ref={emailRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="password">password :</label>
+              <input
+                type="password"
+                id="passwordRef"
+                name="passwordRef"
+                ref={passwordRef}
+                required
+              ></input>
+              <br></br>
+              <label htmlFor="ConformpasswordRef">Conform password :</label>
+              <input
+                type="password"
+                id="ConformpasswordRef"
+                name="ConformpasswordRef"
+                ref={ConformpasswordRef}
+                required
+              ></input>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
 
           <div className="userAddressUpdata">
-            {
-              UserData.addresses.length > 0 ? 
-              <UserAddresses addresses ={UserData.addresses}/> :
+            {UserData.addresses.length > 0 ? (
+              <UserAddresses addresses={UserData.addresses} />
+            ) : (
               <h2>No addresses</h2>
-            }
+            )}
           </div>
         </>
       ) : (
