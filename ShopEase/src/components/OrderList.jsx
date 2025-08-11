@@ -33,6 +33,7 @@ const OrderList = () => {
                 <h2>Order No: {index + 1}</h2>
                 <h2>Date: {order.date.split('T')[0]}</h2>
                 <h2>Number of Items: {order.items.length}</h2>
+                <h2>Quantity of Items: {order.quantityOrder}</h2>
               </div>
             </Link>
           )
