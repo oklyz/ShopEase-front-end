@@ -1,18 +1,32 @@
+import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
+import { createIssue } from '../services/Issue'
+import UserContext from '../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 
-const Issue = () => {
+const Issueform = () => {
+  const redirect = useNavigate()
+  const { user } = useContext(UserContext)
   const { orderId } = useParams()
   const descriptionRef = useRef(null)
   const subjectRef = useRef(null)
+  let payload = {}
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log({
+    const Issue = async (data) => {
+      await createIssue(data)
+    }
+    payload = {
       subject: subjectRef.current.value,
-      description: descriptionRef.current.value
-    })
+      description: descriptionRef.current.value,
+      order: orderId,
+      userId: user.id
+    }
+    payload && Issue(payload)
+    alert('The issue send to the admin ')
+    redirect('/')
   }
 
   return (
@@ -23,7 +37,7 @@ const Issue = () => {
         <select id="subject" name="subject" ref={subjectRef}>
           <option value="">Select a subject</option>
           <option value="Damage item ">Damage item </option>
-          <option value="Bag Package">Bag Package</option>
+          <option value="Bad Package">Bad Package</option>
         </select>
         <br></br>
         <label htmlFor="description">Description:</label>
@@ -41,4 +55,4 @@ const Issue = () => {
   )
 }
 
-export default Issue
+export default Issueform

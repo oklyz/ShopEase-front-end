@@ -1,22 +1,22 @@
-import Search from "../components/Search"
-import { useState, useEffect } from "react"
-import { GetItems } from "../services/item"
-import Items from "../components/Items"
-
+import Search from '../components/Search'
+import { useState, useEffect } from 'react'
+import { GetItems } from '../services/item'
+import Items from '../components/Items'
+import MostSales from '../components/MostSales'
 const Home = () => {
-  
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState()
   const [getitem, setGetItem] = useState([])
-  const [toggle, setToggle] = useState(false)
+  const [toggleSearch, setToggleSearch] = useState(false)
+  const [toggleMostSales, setToggleMostSales] = useState(false)
   useEffect(() => {
     const handleItems = async () => {
       const data = await GetItems()
       setGetItem(data)
     }
     handleItems()
-  },[])
-  
+  }, [])
+
   if (!getitem) {
     return <h1>loding ...</h1>
   }
@@ -32,34 +32,49 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSearchResult(filterArray(getitem))
-    setSearch("")
-    setToggle(true)
+    setSearch('')
+    setToggleSearch(true)
+  }
+
+  const handleSubmitMostSales = async () => {
+    setToggleSearch(false)
+    setToggleMostSales(!toggleMostSales)
   }
 
   const handleChange = (e) => {
     setSearch(e.target.value)
   }
-  
-  
+
   searchResult && console.log(searchResult)
-  return(
+  return (
     <>
-    <div>
-      <Search handleChange={handleChange} handleSubmit={handleSubmit} />
-    </div>
-    {toggle ? (
       <div>
-        {searchResult.map((item) => (
-          <Items item={item} key={item._id}/>
-        ))}
+        <Search handleChange={handleChange} handleSubmit={handleSubmit} search={search}/>
       </div>
-    ) : (
       <div>
-      {getitem.map((item) => (
-        <Items item={item} key={item._id}/>
-      ))}
-    </div>
-    )}
+        <button onClick={handleSubmitMostSales}>MostSales</button>
+      </div>
+      {toggleSearch ? (
+        <div>
+          {searchResult.map((item) => (
+            <Items item={item} key={item._id} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          {toggleMostSales ? (
+            <>
+            <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
+            </>
+          ) : 
+          <>
+          {getitem.map((item) => (
+            <Items item={item} key={item._id} />
+          ))}
+          </>
+          }
+        </div>
+      )}
     </>
   )
 }

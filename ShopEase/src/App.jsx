@@ -9,18 +9,19 @@ import Dashboard from './pages/Deashboard'
 import ContactAs from './pages/ContactAs'
 import ItemDetails from './pages/ItemDetails'
 import Profile from './pages/Profile'
-import Issue from './components/Issue'
+import Issueform from './components/Issueform'
 import Issues from './pages/Issues'
 import { useContext, useEffect } from 'react'
 import UserContext from './contexts/UserContext'
 import { CheckSession } from './services/Auth'
 import AdminItems from './pages/AdminItems'
 import ItemForm from './components/ItemForm'
+import UserUpadataInfo from './components/UserUpadataInfo'
 
 import OrderDetails from './components/OrderDetails'
 import { OrdersProvider } from './contexts/OrdersContext'
 function App() {
-  const { setUser } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
 
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
@@ -47,6 +48,7 @@ function App() {
 
             {/* customer routes */}
             <Route path="/" element={<Home />}></Route>
+            <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
             <Route path="/contact" element={<ContactAs />}></Route>
@@ -55,13 +57,29 @@ function App() {
               path="/profile/order/:index"
               element={<OrderDetails />}
             ></Route>
-            <Route path="/issue/:orderId" element={<Issue />}></Route>
+            <Route path="/issue/:orderId" element={<Issueform />}></Route>
 
             {/* admin routes */}
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/issues" element={<Issues />}></Route>
-            <Route path="/adminitems" element={<AdminItems />}></Route>
-            <Route path="/adminitems/new" element={<ItemForm />}></Route>
+            {user && user.role === 'admin' ? (
+              <>
+                <Route path="/" element={<Dashboard />}></Route>
+                <Route path="/issues" element={<Issues />}></Route>
+                <Route path="/adminitems" element={<AdminItems />}></Route>
+                <Route path="/adminitems/new" element={<ItemForm />}></Route>
+              </>
+            ) : (
+              <>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/itemdetails" element={<ItemDetails />}></Route>
+                <Route path="/contact" element={<ContactAs />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route
+                  path="/profile/order/:index"
+                  element={<OrderDetails />}
+                ></Route>
+              </>
+            )}
           </Routes>
         </OrdersProvider>
       </main>

@@ -13,7 +13,7 @@ const Nav = () => {
 
   const adminOptions = (
     <nav>
-      <Link to="">Dashboard</Link>
+      <Link to="/">Dashboard</Link>
       <Link to="/issues">Issues</Link>
       <Link to="/adminitems">My Items</Link>
       <Link to="/login" onClick={handleLogOut}>

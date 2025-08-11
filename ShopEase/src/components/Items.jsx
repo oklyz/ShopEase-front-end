@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import { BASE_URL } from '../services/api'
 const Items = ({ item }) => {
   
   return(
@@ -8,8 +9,7 @@ const Items = ({ item }) => {
           <div>
         <h1>{item.name}</h1>
         <h3>${item.price}</h3>
-        <h3>quantity: {item.quantity}</h3>
-        <img src={`${item.image}`} alt={`${item.image}`} />
+        <img src={`${BASE_URL}/images/${item.image}`} alt={`${item.image}`} width={200} height={200}/>
       </div>
     </Link>
 
