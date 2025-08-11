@@ -1,18 +1,29 @@
+import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
+import { createIssue } from '../services/Issue'
+import UserContext from '../contexts/UserContext'
 
 const Issueform = () => {
+  const { user } = useContext(UserContext)
   const { orderId } = useParams()
   const descriptionRef = useRef(null)
   const subjectRef = useRef(null)
+  let payload = {}
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log({
+    const Issue = async (data) => {
+      await createIssue(data)
+    }
+    payload = {
       subject: subjectRef.current.value,
-      description: descriptionRef.current.value
-    })
+      description: descriptionRef.current.value,
+      order: orderId,
+      userId: user.id
+    }
+    console.log(payload)
+    payload && Issue(payload)
   }
 
   return (
