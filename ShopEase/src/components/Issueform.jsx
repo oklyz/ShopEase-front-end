@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
 
-const Issue = () => {
+const Issueform = () => {
   const { orderId } = useParams()
   const descriptionRef = useRef(null)
   const subjectRef = useRef(null)
@@ -41,4 +41,4 @@ const Issue = () => {
   )
 }
 
-export default Issue
+export default Issueform
