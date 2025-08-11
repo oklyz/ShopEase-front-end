@@ -3,7 +3,7 @@ const Items = ({ item }) => {
   
   return(
     <>
-    <Link to= {`/itemdetails/${item._id}`}>
+    <Link className='item-detail-link' to= {`/itemdetails/${item._id}`}>
     
           <div>
         <h1>{item.name}</h1>

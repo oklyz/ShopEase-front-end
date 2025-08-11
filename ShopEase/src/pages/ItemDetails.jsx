@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useState,useContext } from "react"
+import UserContext from "../contexts/UserContext"
 import { getItemById } from "../services/item"
+import Comment from "../components/Comments"
 const ItemDetails = () => {
-
+const {user}=useContext(UserContext)
   let {itemId} = useParams()
   console.log(itemId)
 
@@ -28,6 +30,7 @@ getItemDetails()
 <p>{item.quantity}</p>
 <p>{item.category}</p>
 <img src={item.image} alt="itemImage" />
+{user.role==='customer' ? (<Comment itemId={item._id}/>) :null}
 </>) :
 
 <h1>item not exist</h1>}
