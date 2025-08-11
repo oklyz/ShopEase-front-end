@@ -19,7 +19,7 @@ import ItemForm from './components/ItemForm'
 import OrderDetails from './components/OrderDetails'
 import { OrdersProvider } from './contexts/OrdersContext'
 function App() {
-  const { setUser } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
 
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
@@ -45,21 +45,41 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
 
             {/* customer routes */}
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-            <Route path="/itemdetails" element={<ItemDetails />}></Route>
-            <Route path="/contact" element={<ContactAs />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route
-              path="/profile/order/:index"
-              element={<OrderDetails />}
-            ></Route>
+            {/* {user && user.role === 'customer' && (
+              <>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/itemdetails" element={<ItemDetails />}></Route>
+                <Route path="/contact" element={<ContactAs />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route
+                  path="/profile/order/:index"
+                  element={<OrderDetails />}
+                ></Route>
+              </>
+            )} */}
 
             {/* admin routes */}
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/issues" element={<Issues />}></Route>
-            <Route path="/adminitems" element={<AdminItems />}></Route>
-            <Route path="/adminitems/new" element={<ItemForm />}></Route>
+            {user && user.role === 'admin' ? (
+              <>
+                <Route path="/" element={<Dashboard />}></Route>
+                <Route path="/issues" element={<Issues />}></Route>
+                <Route path="/adminitems" element={<AdminItems />}></Route>
+                <Route path="/adminitems/new" element={<ItemForm />}></Route>
+              </>
+            ) : (
+              <>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/itemdetails" element={<ItemDetails />}></Route>
+                <Route path="/contact" element={<ContactAs />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route
+                  path="/profile/order/:index"
+                  element={<OrderDetails />}
+                ></Route>
+              </>
+            )}
           </Routes>
         </OrdersProvider>
       </main>

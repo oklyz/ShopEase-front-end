@@ -1,11 +1,10 @@
-import Search from "../components/Search"
-import { useState, useEffect } from "react"
-import { GetItems } from "../services/item"
-import Items from "../components/Items"
+import Search from '../components/Search'
+import { useState, useEffect } from 'react'
+import { GetItems } from '../services/item'
+import Items from '../components/Items'
 
 const Home = () => {
-  
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState()
   const [getitem, setGetItem] = useState([])
   const [toggle, setToggle] = useState(false)
@@ -15,8 +14,8 @@ const Home = () => {
       setGetItem(data)
     }
     handleItems()
-  },[])
-  
+  }, [])
+
   if (!getitem) {
     return <h1>loding ...</h1>
   }
@@ -32,34 +31,33 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSearchResult(filterArray(getitem))
-    setSearch("")
+    setSearch('')
     setToggle(true)
   }
 
   const handleChange = (e) => {
     setSearch(e.target.value)
   }
-  
-  
+
   searchResult && console.log(searchResult)
-  return(
+  return (
     <>
-    <div>
-      <Search handleChange={handleChange} handleSubmit={handleSubmit} />
-    </div>
-    {toggle ? (
       <div>
-        {searchResult.map((item) => (
-          <Items item={item} key={item._id}/>
-        ))}
+        <Search handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
-    ) : (
-      <div>
-      {getitem.map((item) => (
-        <Items item={item} key={item._id}/>
-      ))}
-    </div>
-    )}
+      {toggle ? (
+        <div>
+          {searchResult.map((item) => (
+            <Items item={item} key={item._id} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          {getitem.map((item) => (
+            <Items item={item} key={item._id} />
+          ))}
+        </div>
+      )}
     </>
   )
 }
