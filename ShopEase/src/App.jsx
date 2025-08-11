@@ -16,6 +16,7 @@ import UserContext from './contexts/UserContext'
 import { CheckSession } from './services/Auth'
 import AdminItems from './pages/AdminItems'
 import ItemForm from './components/ItemForm'
+import UserUpadataInfo from './components/UserUpadataInfo'
 
 import OrderDetails from './components/OrderDetails'
 import { OrdersProvider } from './contexts/OrdersContext'
@@ -47,6 +48,7 @@ function App() {
 
             {/* customer routes */}
             <Route path="/" element={<Home />}></Route>
+            <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
             <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
             <Route path="/contact" element={<ContactAs />}></Route>
