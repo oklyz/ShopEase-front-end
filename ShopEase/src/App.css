@@ -21,6 +21,10 @@ header nav a {
   margin: 0 1em;
 }
 
+.dark-btn {
+  color: rgb(0, 37, 160);
+  text-decoration: underline;
+}
 .items {
   /* Wrapper styling */
   max-width: 500px;
