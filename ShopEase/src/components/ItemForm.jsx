@@ -16,28 +16,34 @@ const ItemForm = () => {
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    if(e.target.name==="image"){
+      setFormValues({...formValues,image:e.target.files[0]})
+    }
+    else
+        setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await createItem({
-      image: formValues.image,
-      name: formValues.name,
-      description: formValues.description,
-      category: formValues.category,
-      price: parseInt(formValues.price),
-      quantity: parseInt(formValues.quantity)
-    })
+    const formData=new FormData() 
+    formData.append("name",formValues.name)
+    formData.append("description",formValues.description)
+    formData.append("category",formValues.category)
+    formData.append("price",parseInt(formValues.price))
+    formData.append("quantity",parseInt(formValues.quantity))
+    formData.append("image",formValues.image)
 
+    await createItem(formData)
+console.log(formValues)
+// console.log(formValues)
     setFormValues(initialState)
-    navigate('/adminitems')
+    // navigate('/adminitems')
   }
 
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType='multipart/form-data'>
           <div>
             <label htmlFor="name">Item Name</label>
             <input
@@ -117,6 +123,16 @@ const ItemForm = () => {
               <option value="woman">Woman</option>
               <option value="kids">Kids</option>
             </select>
+          
+          </div>
+          <div>
+            <input 
+            type="file"
+             name="image"
+              id="image"
+              accept='image/*'
+               onChange={handleChange}  
+               />
           </div>
           <button>Create a new product</button>
         </form>
