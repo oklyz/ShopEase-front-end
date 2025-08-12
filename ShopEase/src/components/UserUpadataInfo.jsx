@@ -46,6 +46,7 @@ const UserUpadataInfo = () => {
       redirect('/')
     }
   }
+
   return (
     <>
       {UserData ? (

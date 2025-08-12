@@ -19,7 +19,7 @@ const ItemDetails = () => {
       setItem(itemdetails)
     }
     getItemDetails()
-  }, [])
+  }, [item])
 
   return (
     <>
@@ -40,11 +40,17 @@ const ItemDetails = () => {
               <p>{item.category}</p>
 
               <div>
-                <button disabled={quantity <= 0} onClick={() => setQuantity((quantity) => quantity - 1)}>
+                <button
+                  disabled={quantity <= 0}
+                  onClick={() => setQuantity((quantity) => quantity - 1)}
+                >
                   -
                 </button>
                 <span>{quantity}</span>
-                <button disabled={item.quantity <= quantity} onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button
+                  disabled={item.quantity <= quantity}
+                  onClick={() => setQuantity((quantity) => quantity + 1)}
+                >
                   +
                 </button>
               </div>
