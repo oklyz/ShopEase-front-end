@@ -62,7 +62,8 @@ function App() {
               <Route path="/" element={<Dashboard />}></Route>
               <Route path="/issues" element={<Issues />}></Route>
               <Route path="/adminitems" element={<AdminItems />}></Route>
-              <Route path="/adminitems/new" element={<ItemForm />}></Route>
+              <Route path="/adminitems/new" element={<ItemForm text={"Create New Item"}/>}></Route>
+              <Route path='/adminitems/edit/:itemId' element={<ItemForm text={"Edit Item"} />} ></Route>
             </>
           ) : (
             <>

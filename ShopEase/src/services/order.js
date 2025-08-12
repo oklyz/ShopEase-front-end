@@ -13,8 +13,7 @@ export const getUserOrders = async (data) => {
 export const createOrder = async (data) => {
   try {
     const res = await Client.post('/order/new', data)
-    console.log(`createOrder res.data:`)
-    console.log(res.data)
+
   } catch (error) {
     throw error
   }

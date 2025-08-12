@@ -14,7 +14,7 @@ const AdminItems = () => {
     getAllItem()
   }, [])
 
-  items.length > 0 && console.log(items)
+
 
   return (
     <>

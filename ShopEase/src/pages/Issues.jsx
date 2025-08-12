@@ -7,7 +7,7 @@ const Issues = () => {
   useEffect(() => {
     const getAllIssues = async () => {
       const allIssues = await getIssues()
-      // console.log(allIssues)
+ 
       setIssues(allIssues)
     }
 

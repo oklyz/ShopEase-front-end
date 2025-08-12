@@ -1,5 +1,4 @@
 const UserAddresses = ({ addresses }) => {
-  console.log(addresses)
   return (
     <>
       {addresses.map((addresse) => (

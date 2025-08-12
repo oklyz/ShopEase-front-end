@@ -45,7 +45,7 @@ const Home = () => {
     setSearch(e.target.value)
   }
 
-  searchResult && console.log(searchResult)
+ 
   return (
     <>
       <div>
