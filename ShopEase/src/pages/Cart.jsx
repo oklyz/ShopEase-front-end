@@ -16,21 +16,21 @@ const Cart = () => {
     cc()
   }, [])
 
-  myCart && console.log(myCart)
+  const removeItemCart = () => {}
+
+  // myCart.length > 0 && console.log(myCart[0]._id)
 
   return (
     <>
       {myCart.length > 0 ? (
         <>
-          <div>
-            {myCart.map((item) => (
-              <>
-                <h3>{item.name}</h3>
-                <h3>{item.price}</h3>
-                <h3>{item.quantityOrdered}</h3>
-              </>
-            ))}
-          </div>
+          {myCart.map((item) => (
+            <div key={item._id}>
+              <h3>{item.name}</h3>
+              <h3>{item.price}</h3>
+              <h3>{item.quantityOrdered}</h3>
+            </div>
+          ))}
           <br />
           <br />
         </>
