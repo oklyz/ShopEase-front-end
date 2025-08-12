@@ -1,12 +1,16 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import UserContext from '../contexts/UserContext'
+import CartContext from '../contexts/CartContext'
 import { getItemById } from '../services/item'
 import CommentsForm from '../components/CommentsForm'
 import DisplayComments from '../components/DisplayComments'
 
 const ItemDetails = () => {
+  let cartList = []
   let { itemId } = useParams()
+  const { cart, setCart } = useContext(CartContext)
+  // const [cart, setCart] = useState([])
   const { user } = useContext(UserContext)
   const [item, setItem] = useState(null)
   let [quantity, setQuantity] = useState(0)
@@ -20,6 +24,14 @@ const ItemDetails = () => {
     }
     getItemDetails()
   }, [])
+
+  const addToCart = () => {
+    let myCart = {
+      ...item,
+      quantityOrdered: quantity
+    }
+    setCart([...cart, myCart])
+  }
 
   return (
     <>
@@ -40,19 +52,24 @@ const ItemDetails = () => {
               <p>{item.category}</p>
 
               <div>
-                <button disabled={quantity <= 0} onClick={() => setQuantity((quantity) => quantity - 1)}>
+                <button
+                  disabled={quantity <= 0}
+                  onClick={() => setQuantity((quantity) => quantity - 1)}
+                >
                   -
                 </button>
                 <span>{quantity}</span>
-                <button disabled={item.quantity <= quantity} onClick={() => setQuantity((quantity) => quantity + 1)}>
+                <button
+                  disabled={item.quantity <= quantity}
+                  onClick={() => setQuantity((quantity) => quantity + 1)}
+                >
                   +
                 </button>
               </div>
 
               <br />
               <div>
-                <button>add to Cart</button>
-
+                <button onClick={addToCart}>add to Cart</button>
                 <Link to={`/itemdetails/${item._id}/${quantity}`}>
                   <button>checkout</button>
                 </Link>
