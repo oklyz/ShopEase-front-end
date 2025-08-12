@@ -5,6 +5,7 @@ import CartContext from '../contexts/CartContext'
 import { getItemById } from '../services/item'
 import CommentsForm from '../components/CommentsForm'
 import DisplayComments from '../components/DisplayComments'
+import Cookies from 'js-cookie'
 
 const ItemDetails = () => {
   let cartList = []
