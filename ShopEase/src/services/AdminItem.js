@@ -6,7 +6,7 @@ export const createItem = async (data) => {
        
     const res = await Client.post('/item/new', data,config)
     
-    console.log(res)
+
   } catch (error) {
     throw error
   }

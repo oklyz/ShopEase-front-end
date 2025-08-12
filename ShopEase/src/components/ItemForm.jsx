@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { createItem } from '../services/AdminItem'
-import { useNavigate } from 'react-router-dom'
-
-const ItemForm = () => {
+import { useNavigate, useParams } from 'react-router-dom'
+import { editItem } from '../services/item'
+const ItemForm = ({text}) => {
   let navigate = useNavigate()
+
+  let {itemId}=useParams()
   const initialState = {
     image: 'default-img',
     name: '',
@@ -33,9 +35,13 @@ const ItemForm = () => {
     formData.append("quantity",parseInt(formValues.quantity))
     formData.append("image",formValues.image)
 
-    await createItem(formData)
-console.log(formValues)
-// console.log(formValues)
+    if(itemId){
+      await editItem(itemId,formData)
+    }else{
+      await createItem(formData)
+    }
+
+
     setFormValues(initialState)
     // navigate('/adminitems')
   }
@@ -134,7 +140,7 @@ console.log(formValues)
                onChange={handleChange}  
                />
           </div>
-          <button>Create a new product</button>
+          <button>{text}</button>
         </form>
       </div>
     </>

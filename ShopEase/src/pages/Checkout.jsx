@@ -33,7 +33,7 @@ const Checkout = () => {
     getItem()
   }, [itemId])
 
-  // overall && console.log(overall)
+
 
   const initialState = {
     paymentMethod: 'creditCard',
