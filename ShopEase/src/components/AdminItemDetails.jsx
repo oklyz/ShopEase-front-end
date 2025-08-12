@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../services/api'
 import { deleteItem } from '../services/item'
 import { Link } from 'react-router-dom'
+import ItemForm from './ItemForm'
 const AdminItemDetails = ({ item }) => {
   let navigate=useNavigate()
   const handleDelete= async ()=>{
@@ -22,6 +23,9 @@ const AdminItemDetails = ({ item }) => {
         <p>{item.price}</p>
         <p>{item.quantity}</p>
         <button onClick={handleDelete} >Delete Item </button>
+        <Link to={`/adminitems/edit/${item._id}`}>
+        <button>Edit</button>
+        </Link>
       </div>
     </>
   )
