@@ -8,3 +8,11 @@ export const getIssues = async () => {
     throw error
   }
 }
+
+export const createIssue = async (data) => {
+  try {
+    await Client.post('/contact/new', data)
+  } catch (error) {
+    throw error
+  }
+}
