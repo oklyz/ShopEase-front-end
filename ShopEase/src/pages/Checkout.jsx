@@ -4,11 +4,13 @@ import { getItemById } from '../services/item'
 import { createOrder } from '../services/order'
 import { createAddress } from '../services/address'
 import UserContext from '../contexts/UserContext'
+import OrderOverallContext from '../contexts/OrderOverallContext'
 
 const Checkout = () => {
   const { itemId, quantity } = useParams()
-  const [overall, setOverall] = useState(null)
+  // const [overall, setOverall] = useState(null)
   const { user } = useContext(UserContext)
+  const { overall, setOverall } = useContext(OrderOverallContext)
 
   useEffect(() => {
     const getItem = async () => {
@@ -69,6 +71,7 @@ const Checkout = () => {
       quantityOrder: overall.quantityOrdered
     })
     setFormValues(initialState)
+    setOverall(null)
     // navigate('/login')
   }
 
