@@ -1,6 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../services/api'
-
+import { deleteItem } from '../services/item'
+import { Link } from 'react-router-dom'
 const AdminItemDetails = ({ item }) => {
+  let navigate=useNavigate()
+  const handleDelete= async ()=>{
+    deleteItem(item._id)
+    navigate("/")
+  }
+  
   return (
     <>
       <div>
@@ -13,6 +21,7 @@ const AdminItemDetails = ({ item }) => {
         <h1>{item.name}</h1>
         <p>{item.price}</p>
         <p>{item.quantity}</p>
+        <button onClick={handleDelete} >Delete Item </button>
       </div>
     </>
   )
