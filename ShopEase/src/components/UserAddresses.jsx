@@ -1,15 +1,17 @@
 const UserAddresses = ({ addresses }) => {
+  console.log(addresses)
   return (
     <>
-      <div>
-        <h3>{addresses._id}</h3>
-        <h3>{addresses.country}</h3>
-        <h3>{addresses.city}</h3>
-        <h3>{addresses.block}</h3>
-        <h3>{addresses.street}</h3>
-        <h3>{addresses.building}</h3>
-        <h3>{addresses.phone}</h3>
-      </div>
+      {addresses.map((addresse) => (
+        <div>
+          <h3>Country: {addresse.country}</h3>
+          <h3>City: {addresse.city}</h3>
+          <h3>Block: {addresse.block}</h3>
+          <h3>Street: {addresse.street}</h3>
+          <h3>Building: {addresse.building}</h3>
+          <h3>Phone: {addresse.phone}</h3>
+        </div>
+      ))}
     </>
   )
 }
