@@ -24,7 +24,7 @@ const ItemDetails = () => {
       setItem(itemdetails)
     }
     getItemDetails()
-  }, [])
+  }, [item])
 
   const addToCart = () => {
     let myCart = {

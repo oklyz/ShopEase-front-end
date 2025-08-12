@@ -17,3 +17,11 @@ export const getItemById=async (itemId)=>{
   }
 
   }
+
+  export const deleteItem=async(itemId)=>{
+    try {
+      const res=await Client.delete(`/item/delete/${itemId}`)
+    } catch (error) {
+      throw error
+    }
+  }
