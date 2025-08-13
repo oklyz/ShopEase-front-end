@@ -51,10 +51,26 @@ const UserUpadataInfo = () => {
     <>
       {UserData ? (
         <>
-          <div className="fromupdata"></div>
           <div className="fromupdata">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="name">name :</label>
+              <img
+                src={`${BASE_URL}${UserData.image}`}
+                alt="User Profile"
+                className="profileImage"
+              />
+              <br />
+              <label htmlFor="image">image : </label>
+              <input
+                type="file"
+                name="image"
+                id="image"
+                accept="image/*"
+                ref={imageRef}
+                required
+              />
+
+              <br />
+              <label htmlFor="name">name : </label>
               <input
                 id="name"
                 name="name"
@@ -72,7 +88,7 @@ const UserUpadataInfo = () => {
                 required
               ></input>
               <br></br>
-              <label htmlFor="password">password :</label>
+              <label htmlFor="password">password : </label>
               <input
                 type="password"
                 id="passwordRef"
@@ -81,7 +97,7 @@ const UserUpadataInfo = () => {
                 required
               ></input>
               <br></br>
-              <label htmlFor="ConformpasswordRef">Conform password :</label>
+              <label htmlFor="ConformpasswordRef">Conform password : </label>
               <input
                 type="password"
                 id="ConformpasswordRef"
@@ -89,15 +105,6 @@ const UserUpadataInfo = () => {
                 ref={ConformpasswordRef}
                 required
               ></input>
-              <label htmlFor="image">image :</label>
-              <input
-                type="file"
-                name="image"
-                id="image"
-                accept="image/*"
-                ref={imageRef}
-                required
-              />
               <button type="submit">Submit</button>
             </form>
           </div>
