@@ -45,6 +45,12 @@ An e-commerce website is a digital platform that enables individuals to buy good
 ###
 
 ---
+### Future Enhancements
+- Add delivery companies
+- Add order tracking system
+- Add payment methods
+- Complete cart feature
+---
 
 ### Entity Relationship Diagram
 
