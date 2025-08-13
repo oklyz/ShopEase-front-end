@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
-import { createIssue } from '../services/Issue'
+import { createIssue } from '../services/issue'
 import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 
