@@ -4,7 +4,6 @@ import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo, UserUpdata } from '../services/Auth'
 import UserAddresses from './UserAddresses'
-import { BASE_URL } from '../services/api'
 const UserUpadataInfo = () => {
   const [UserData, setUserData] = useState(null)
 
@@ -19,6 +18,7 @@ const UserUpadataInfo = () => {
     user && userdata()
   }, [user])
 
+ 
   const nameRef = useRef(null)
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
@@ -38,8 +38,8 @@ const UserUpadataInfo = () => {
       payload = {
         name: nameRef.current.value,
         email: emailRef.current.value,
-        password: passwordRef.current.value,
-        image: imageRef.current.files[0]
+        password: passwordRef.current.value
+        // image: imageRef.current.value,
       }
       payload && updata(user.id, payload)
       alert('The user updata')
@@ -89,15 +89,6 @@ const UserUpadataInfo = () => {
                 ref={ConformpasswordRef}
                 required
               ></input>
-              <label htmlFor="image">image :</label>
-              <input
-                type="file"
-                name="image"
-                id="image"
-                accept="image/*"
-                ref={imageRef}
-                required
-              />
               <button type="submit">Submit</button>
             </form>
           </div>

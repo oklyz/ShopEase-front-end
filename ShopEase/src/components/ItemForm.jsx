@@ -10,6 +10,7 @@ const ItemForm = ({text}) => {
     image: 'default-img',
     name: '',
     price: '',
+    costPrice: '',
     quantity: '',
     description: '',
     category: 'man'
@@ -32,6 +33,7 @@ const ItemForm = ({text}) => {
     formData.append("description",formValues.description)
     formData.append("category",formValues.category)
     formData.append("price",parseInt(formValues.price))
+    formData.append("costPrice",parseInt(formValues.costPrice))
     formData.append("quantity",parseInt(formValues.quantity))
     formData.append("image",formValues.image)
 
@@ -100,6 +102,20 @@ const ItemForm = ({text}) => {
               required
               autoComplete="price"
               name="price"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="costPrice">Cost per unit </label>
+            <input
+              onChange={handleChange}
+              id="costPrice"
+              type="number"
+              min={0}
+              value={formValues.costPrice}
+              required
+              autoComplete="costPrice"
+              name="costPrice"
             />
           </div>
 
