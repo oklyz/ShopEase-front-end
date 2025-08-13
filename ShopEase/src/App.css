@@ -170,6 +170,174 @@ header nav a {
 }
 
 /* item.jsx */
-.item-detail-link{
-color: black;
+.item-detail-link {
+  color: black;
+}
+
+/* profile user */
+
+.fromupdata {
+  margin: 2rem auto;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fromupdata form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #74a8cb;
+  cursor: pointer;
+  margin: 0 auto 1rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+  border-color: #4d8bbd;
+}
+
+.fromupdata label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.fromupdata input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fromupdata input:focus {
+  border-color: #74a8cb;
+  box-shadow: 0 0 0 3px rgba(116, 168, 203, 0.25);
+  outline: none;
+}
+
+.fromupdata button[type='submit'] {
+  background-color: #74a8cb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.fromupdata button[type='submit']:hover {
+  background-color: #5d96bd;
+}
+
+.fromupdata button[type='submit']:active {
+  background-color: #4d8bbd;
+}
+
+/* address */
+
+.userAddressUpdata {
+  margin: 2rem auto;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userAddressUpdata h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.userAddressUpdata form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.userAddressUpdata .form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.userAddressUpdata .form-group {
+  flex: 1;
+  margin-bottom: 0.5rem;
+}
+
+.userAddressUpdata label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #495057;
+}
+
+.userAddressUpdata input,
+.userAddressUpdata select,
+.userAddressUpdata textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.userAddressUpdata textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.userAddressUpdata input:focus,
+.userAddressUpdata select:focus,
+.userAddressUpdata textarea:focus {
+  border-color: #74a8cb;
+  box-shadow: 0 0 0 3px rgba(116, 168, 203, 0.25);
+  outline: none;
+}
+
+.userAddressUpdata button {
+  background-color: #74a8cb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  align-self: flex-end;
+}
+
+.userAddressUpdata button:hover {
+  background-color: #5d96bd;
+}
+
+.userAddressUpdata button:active {
+  background-color: #4d8bbd;
 }
