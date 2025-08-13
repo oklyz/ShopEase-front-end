@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getIssues } from '../services/Issue'
+import { getIssues } from '../services/issue'
 
 const Issues = () => {
   const [issues, setIssues] = useState([])
