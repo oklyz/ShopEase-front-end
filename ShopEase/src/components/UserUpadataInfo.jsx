@@ -141,15 +141,6 @@ if(flag){
                 ref={ConformpasswordRef}
                 required
               ></input>
-              <label htmlFor="image">image :</label>
-              <input
-                type="file"
-                name="image"
-                id="image"
-                accept="image/*"
-                ref={imageRef}
-                required
-              />
               <button type="submit"> Submit</button>
              <h5>{strongPasswordMsg  ? "your password is weak try adding lower,uppercase numbers and special charcter and it is 8 charcter": null}</h5>
              <h5>{matchPasswordMsg ? "your password does not match": null }</h5>
