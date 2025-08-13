@@ -1,4 +1,4 @@
-# ShopEase-back-end
+# ShopEase-front-end
 # Date 8/7/2025
 # By: Ali Hasan, Qassim Aldearzi, Zeshan Ahmed, Abdulla Zaid
 #### Desciption
