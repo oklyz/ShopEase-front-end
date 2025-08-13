@@ -63,9 +63,9 @@ const Home = () => {
       ) : (
         <div>
           {toggleMostSales ? (
-            <>
+            <div className='container-items'>
             <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
-            </>
+            </div>
           ) : 
         <div className='container-items'>
           {getitem.map((item) => (
