@@ -3,7 +3,6 @@ import { UserInfo } from '../services/Auth'
 import { useEffect, useContext, useState } from 'react'
 import OrderList from '../components/OrderList'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from '../services/api'
 const Profile = () => {
   const [UserData, setUserData] = useState(null)
   const { user } = useContext(UserContext)
@@ -23,7 +22,7 @@ const Profile = () => {
           <>
             <Link to="/user-updata">
               <img
-                src={`${BASE_URL}${UserData.image}`}
+                src={UserData.image}
                 alt="User Profile"
                 width={100}
                 height={100}
