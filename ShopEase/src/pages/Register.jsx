@@ -12,13 +12,23 @@ const Register = () => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
-
+  const [passwordMsg,setPasswordMsg]=useState(false)
+let passwordRegex=RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/)
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+  const strongPasswordValidation=(password)=>{
+    if(password.match(passwordRegex)){
+      setPasswordMsg(false)
+    }
+    else{
+      setPasswordMsg(true)
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    strongPasswordValidation(formValues.password)
     await RegisterUser({
       name: formValues.name,
       email: formValues.email,
@@ -86,12 +96,13 @@ const Register = () => {
         <button
           disabled={
             !formValues.email ||
-            (!formValues.password &&
-              formValues.password === formValues.confirmPassword)
+            (!formValues.password ||
+              !(formValues.password === formValues.confirmPassword))
           }
         >
           Register
         </button>
+        <h5>{passwordMsg  ? "your password is weak try adding lower,uppercase numbers and special charcter and it is 8 charcter": null}</h5>
       </form>
     </div>
   )
