@@ -8,7 +8,6 @@ import OrderOverallContext from '../contexts/OrderOverallContext'
 
 const Checkout = () => {
   const { itemId, quantity } = useParams()
-  // const [overall, setOverall] = useState(null)
   const { user } = useContext(UserContext)
   const { overall, setOverall } = useContext(OrderOverallContext)
 
@@ -33,9 +32,7 @@ const Checkout = () => {
       })
     }
     getItem()
-  }, [itemId])
-
-
+  }, [itemId, quantity, setOverall])
 
   const initialState = {
     paymentMethod: 'creditCard',
@@ -72,115 +69,120 @@ const Checkout = () => {
     })
     setFormValues(initialState)
     setOverall(null)
-    // navigate('/login')
   }
 
   return (
     <>
-      <div>
-        {overall ? (
-          <>
-            <div>
-              <img
-                src={`http://localhost:3001/images/${overall.image}`}
-                alt="itemImage"
-                width={100}
-                height={100}
-              />
-              <p>{overall.name}</p>
-              <p>price: {overall.price}</p>
-              <p>selected quantity: {overall.quantityOrdered}</p>
-              <p>tax amount: ${overall.taxAmount}</p>
-              <p>sub total: ${overall.subTotal}</p>
-              <p>total: ${overall.total}</p>
-            </div>
-            <div>
-              <h2>fill the form:</h2>
-              <form onSubmit={handleSubmit}>
-                <div>
-                  <label htmlFor="paymentMethod">payment method </label>
-                  <select
-                    name="paymentMethod"
-                    id="paymentMethod"
-                    onChange={handleChange}
-                  >
-                    <option value="creditCard">Credit Card</option>
-                    <option value="paypal">PayPal</option>
-                  </select>
-                </div>
-                <br />
-                <br />
-                <div>
-                  <div>
-                    <label htmlFor="country">Country </label>
-                    <input
-                      type="text"
-                      name="country"
-                      id="country"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="city">City </label>
-                    <input
-                      type="text"
-                      name="city"
-                      id="city"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="block">Block </label>
-                    <input
-                      type="text"
-                      name="block"
-                      id="block"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="street">Street </label>
-                    <input
-                      type="text"
-                      name="street"
-                      id="street"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="building">Building </label>
-                    <input
-                      type="text"
-                      name="building"
-                      id="building"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone">Phone </label>
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <button>place order</button>
-                </div>
-              </form>
-              <br />
-              <br />
-            </div>
-          </>
-        ) : (
-          <>
-            <h1>loading...</h1>
-          </>
-        )}
-      </div>
+      {overall ? (
+        <div className="checkout-container">
+     
+          <div className="checkout-summary">
+            <img
+              src={`http://localhost:3001/images/${overall.image}`}
+              alt="itemImage"
+              width={150}
+              height={150}
+            />
+            <p><strong>{overall.name}</strong></p>
+            <p>Price: ${overall.price}</p>
+            <p>Selected Quantity: {overall.quantityOrdered}</p>
+            <p>Tax Amount: ${overall.taxAmount}</p>
+            <p>Sub Total: ${overall.subTotal}</p>
+            <p><strong>Total: ${overall.total}</strong></p>
+          </div>
+
+        
+          <div className="checkout-form">
+            <h2>Fill the form:</h2>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="paymentMethod">Payment Method</label>
+                <select
+                  name="paymentMethod"
+                  id="paymentMethod"
+                  value={formValues.paymentMethod}
+                  onChange={handleChange}
+                >
+                  <option value="creditCard">Credit Card</option>
+                  <option value="paypal">PayPal</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  value={formValues.country}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="city">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  value={formValues.city}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="block">Block</label>
+                <input
+                  type="text"
+                  name="block"
+                  id="block"
+                  value={formValues.block}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="street">Street</label>
+                <input
+                  type="text"
+                  name="street"
+                  id="street"
+                  value={formValues.street}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="building">Building</label>
+                <input
+                  type="text"
+                  name="building"
+                  id="building"
+                  value={formValues.building}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  value={formValues.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <button type="submit">Place Order</button>
+            </form>
+          </div>
+        </div>
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </>
   )
 }
+
 export default Checkout

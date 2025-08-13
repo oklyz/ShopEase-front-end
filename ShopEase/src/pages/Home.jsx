@@ -67,11 +67,11 @@ const Home = () => {
             <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
             </>
           ) : 
-          <>
+        <div className='container-items'>
           {getitem.map((item) => (
             <Items item={item} key={item._id} />
           ))}
-          </>
+          </div>
           }
         </div>
       )}

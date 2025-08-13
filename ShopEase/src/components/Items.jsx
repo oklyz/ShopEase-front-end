@@ -4,14 +4,14 @@ const Items = ({ item }) => {
   
   return(
     <>
-    <Link className='item-detail-link' to= {`/itemdetails/${item._id}`}>
     
-          <div>
+          <div className='single-item'>
+<Link className='item-detail-link' to= {`/itemdetails/${item._id}`}>
         <h1>{item.name}</h1>
         <h3>${item.price}</h3>
         <img src={`${BASE_URL}/images/${item.image}`} alt={`${item.image}`} width={200} height={200}/>
-      </div>
     </Link>
+      </div>
 
     </>
   )
