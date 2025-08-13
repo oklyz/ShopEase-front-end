@@ -82,41 +82,43 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dash-card">
-        <div class="card">
-          <div class="card-content">
-            <p class="card-title">{countCustomers ? countCustomers : 0}</p>
-            <p class="card-para">Customers</p>
+      <div className='dash-not'>
+        <div className="dash-card">
+          <div class="card">
+            <div class="card-content">
+              <p class="card-title">{countCustomers ? countCustomers : 0}</p>
+              <p class="card-para">Customers</p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <p class="card-title">
-              {countCustomerIssues ? countCustomerIssues : 0}
-            </p>
-            <p class="card-para">Issues</p>
+          <div class="card">
+            <div class="card-content">
+              <p class="card-title">
+                {countCustomerIssues ? countCustomerIssues : 0}
+              </p>
+              <p class="card-para">Issues</p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <p class="card-title">
-              $ {totalProfit ? Math.abs(totalProfit) : 0}
-            </p>
-            <p class="card-para">
-              {totalRevenue > totalCost ? 'Net Profit' : 'Net Loss'}
-            </p>
+          <div class="card">
+            <div class="card-content">
+              <p class="card-title">
+                $ {totalProfit ? Math.abs(totalProfit) : 0}
+              </p>
+              <p class="card-para">
+                {totalRevenue > totalCost ? 'Net Profit' : 'Net Loss'}
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <p class="card-title">$ {totalRevenue ? totalRevenue : 0}</p>
-            <p class="card-para">Revenues</p>
+          <div class="card">
+            <div class="card-content">
+              <p class="card-title">$ {totalRevenue ? totalRevenue : 0}</p>
+              <p class="card-para">Revenues</p>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <p class="card-title">$ {totalCost ? totalCost : 0}</p>
-            <p class="card-para">Costs</p>
+          <div class="card">
+            <div class="card-content">
+              <p class="card-title">$ {totalCost ? totalCost : 0}</p>
+              <p class="card-para">Costs</p>
+            </div>
           </div>
         </div>
       </div>
