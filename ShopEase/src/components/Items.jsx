@@ -5,7 +5,7 @@ const Items = ({ item }) => {
     <>
       <div className="single-item">
         <Link className="item-detail-link" to={`/itemdetails/${item._id}`}>
-          <div className='img-div'>
+          <div className="img-div">
             <img
               src={`${BASE_URL}/images/${item.image}`}
               alt={`${item.image}`}
@@ -13,7 +13,7 @@ const Items = ({ item }) => {
               height={200}
             />
           </div>
-          <div className='item-info'>
+          <div className="item-info">
             <h3>{item.name}</h3>
             <p>${item.price}</p>
           </div>
