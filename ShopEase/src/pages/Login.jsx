@@ -24,39 +24,45 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={handleChange}
-            id="email"
-            type="email"
-            placeholder="example@example.com"
-            value={formValues.email}
-            required
-            autoComplete="email"
-            name='email'
-          />
+<div>
+      <div className='container-form'>
+        <div className='container-card'>
+          <form onSubmit={handleSubmit}
+          className='register-form'>
+          <p className='title'>Login</p>
+              <label htmlFor="email">
+              <input
+                className='input'
+                onChange={handleChange}
+                id="email"
+                type="email"
+                value={formValues.email}
+                required
+                autoComplete="email"
+                name='email'
+              />
+              <span>Email</span>
+              </label>
+              <label htmlFor="password">
+              <input
+                className='input'
+                onChange={handleChange}
+                type="password"
+                id="password"
+                value={formValues.password}
+                required
+                name='password'
+              />
+              <span>Password</span>
+              </label>
+            <button disabled={!formValues.email || !formValues.password}>
+              Sign In
+            </button>
+          </form>
         </div>
-
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={handleChange}
-            type="password"
-            id="password"
-            value={formValues.password}
-            required
-            name='password'
-          />
-        </div>
-
-        <button disabled={!formValues.email || !formValues.password}>
-          Sign In
-        </button>
-      </form>
+      </div>
     </div>
+    
   )
 }
 
