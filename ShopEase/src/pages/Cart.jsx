@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import CartContext from '../contexts/CartContext'
 import Cookies from 'js-cookie'
+import Items from '../components/Items'
 const Cart = () => {
   const { cart } = useContext(CartContext)
   const [myCart, setMyCart] = useState([])
@@ -23,17 +24,16 @@ const Cart = () => {
   return (
     <>
       {myCart.length > 0 ? (
-        <>
+        <div className="items-container">
           {myCart.map((item) => (
-            <div key={item._id}>
-              <h3>{item.name}</h3>
-              <h3>{item.price}</h3>
-              <h3>{item.quantityOrdered}</h3>
-            </div>
+            // <div key={item._id}>
+            //   <h3>{item.name}</h3>
+            //   <h3>{item.price}</h3>
+            //   <h3>{item.quantityOrdered}</h3>
+            // </div>
+            <Items key={item._id} item={item} />
           ))}
-          <br />
-          <br />
-        </>
+        </div>
       ) : (
         <>
           <div>
