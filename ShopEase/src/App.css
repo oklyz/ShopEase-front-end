@@ -68,91 +68,6 @@ header nav a {
 
 /*/////////////////////////*/
 
-.OrdersList {
-  /* Card container styling */
-
-  width: 50%;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  margin: 15px 0;
-  margin-left: 25%;
-  border: 1px solid #eee;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  position: relative;
-  overflow: hidden;
-}
-
-.OrdersList:hover {
-  /* Hover effect */
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  border-color: #e0e0e0;
-}
-
-.OrdersList h2 {
-  /* Heading styles with flex layout */
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 12px 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #444;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.OrdersList h2:last-child {
-  /* Remove bottom margin and border from last item */
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-/* Highlight specific data */
-.OrdersList h2:nth-child(1) span {
-  /* Order number styling */
-  font-weight: 700;
-  color: #2c3e50;
-}
-
-.OrdersList h2:nth-child(2) span {
-  /* Date styling */
-  color: #7f8c8d;
-  font-size: 0.95rem;
-}
-
-.OrdersList h2:nth-child(3) span {
-  /* Item count styling */
-  color: #27ae60;
-  font-weight: 600;
-}
-
-/* Add a subtle accent */
-.OrdersList::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4px;
-  background: linear-gradient(to bottom, #3498db, #2ecc71);
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .OrdersList h2 {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .OrdersList h2 span {
-    align-self: flex-end;
-    margin-top: 2px;
-  }
-}
 .search-container {
   display: flex;
   justify-content: center;
@@ -296,48 +211,177 @@ header nav a {
   color: #495057;
 }
 
-.userAddressUpdata input,
-.userAddressUpdata select,
-.userAddressUpdata textarea {
+/* main-profile container styles */
+.main-profile {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* User Profile Section */
+.UserProfile {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.UserProfile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #74a8cb;
+  transition: transform 0.3s ease;
+}
+
+.UserProfile img:hover {
+  transform: scale(1.05);
+}
+
+.UserProfile h1 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.UserProfile h1:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Orders List Section */
+.OrdersList {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.OrdersList h2 {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 400;
+  display: flex;
+}
+
+.OrdersList h2::before {
+  content: '•';
+  color: #74a8cb;
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5rem;
+}
+
+.OrdersList button {
+  background-color: #74a8cb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.OrdersList button:hover {
+  background-color: #5d96bd;
+}
+
+/* Issue Container Styles */
+.issue-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.issue-container h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Form Styles */
+.issue-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.issue-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.issue-container select,
+.issue-container textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ced4da;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.userAddressUpdata textarea {
-  min-height: 100px;
+.issue-container select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+.issue-container textarea {
+  min-height: 150px;
   resize: vertical;
 }
 
-.userAddressUpdata input:focus,
-.userAddressUpdata select:focus,
-.userAddressUpdata textarea:focus {
+.issue-container select:focus,
+.issue-container textarea:focus {
   border-color: #74a8cb;
   box-shadow: 0 0 0 3px rgba(116, 168, 203, 0.25);
   outline: none;
 }
 
-.userAddressUpdata button {
+/* Button Styles */
+.issue-container button[type='submit'] {
   background-color: #74a8cb;
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 0.5rem;
   align-self: flex-end;
+  margin-top: 1rem;
 }
 
-.userAddressUpdata button:hover {
+.issue-container button[type='submit']:hover {
   background-color: #5d96bd;
 }
 
-.userAddressUpdata button:active {
+.issue-container button[type='submit']:active {
   background-color: #4d8bbd;
+  transform: translateY(1px);
 }
