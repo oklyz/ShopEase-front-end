@@ -17,7 +17,7 @@ const Profile = () => {
   }, [user])
 
   return (
-    <>
+    <div className="main-profile">
       <div className="UserProfile">
         {UserData ? (
           <>
@@ -37,7 +37,7 @@ const Profile = () => {
       </div>
 
       <OrderList />
-    </>
+    </div>
   )
 }
 
