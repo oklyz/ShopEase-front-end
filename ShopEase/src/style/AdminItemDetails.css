@@ -1,0 +1,69 @@
+.admin-item-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-item-card img {
+  border-radius: 6px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.admin-item-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.admin-item-desc {
+  color: #555;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.admin-item-price {
+  color: #1a8917;
+  font-weight: bold;
+}
+
+.admin-item-qty {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.admin-item-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.admin-item-actions button,
+.admin-item-actions a button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  background: #e74c3c;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.admin-item-actions a button {
+  background: #3498db;
+}
+
+.admin-item-actions button:hover {
+  background: #c0392b;
+}
+
+.admin-item-actions a button:hover {
+  background: #217dbb;
+}
