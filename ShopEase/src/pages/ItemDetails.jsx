@@ -35,7 +35,7 @@ const ItemDetails = () => {
   }
 
   return (
-    <>
+    <div className="itmeDetalis-container">
       <div>
         {item ? (
           <>
@@ -90,7 +90,7 @@ const ItemDetails = () => {
           <h1>item not exist</h1>
         )}
       </div>
-    </>
+    </div>
   )
 }
 

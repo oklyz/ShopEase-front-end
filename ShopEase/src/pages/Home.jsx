@@ -24,7 +24,7 @@ const Home = () => {
   const filterArray = (array) => {
     let newArray = array
     const filtered = newArray.filter((data) => {
-      return data.name === search
+      return data.name.toLowerCase().includes(search.toLowerCase())
     })
     return filtered
   }

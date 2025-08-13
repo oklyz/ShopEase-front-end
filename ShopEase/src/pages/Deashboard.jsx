@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { countUsers } from '../services/auth'
+import { countUsers } from '../services/Auth'
 import { countIssues } from '../services/issue'
 import { GetItems } from '../services/item'
 import { Chart as ChartJS, defaults } from 'chart.js/auto'

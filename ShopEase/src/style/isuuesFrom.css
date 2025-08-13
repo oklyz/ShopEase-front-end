@@ -1,0 +1,86 @@
+/* Issue Container Styles */
+.issue-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.issue-container h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Form Styles */
+.issue-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.issue-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.issue-container select,
+.issue-container textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.issue-container select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+.issue-container textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.issue-container select:focus,
+.issue-container textarea:focus {
+  border-color: #74a8cb;
+  box-shadow: 0 0 0 3px rgba(116, 168, 203, 0.25);
+  outline: none;
+}
+
+/* Button Styles */
+.issue-container button[type='submit'] {
+  background-color: #74a8cb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.issue-container button[type='submit']:hover {
+  background-color: #5d96bd;
+}
+
+.issue-container button[type='submit']:active {
+  background-color: #4d8bbd;
+  transform: translateY(1px);
+}

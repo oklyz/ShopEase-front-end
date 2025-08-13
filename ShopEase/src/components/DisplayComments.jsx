@@ -12,7 +12,7 @@ const DisplayComments = ({ comment }) => {
     getDataUser()
   }, [])
   return (
-    <>
+    <div className="DisplayComments">
       {UserData ? (
         <>
           <div>
@@ -24,7 +24,7 @@ const DisplayComments = ({ comment }) => {
       ) : (
         <>loading...</>
       )}
-    </>
+    </div>
   )
 }
 export default DisplayComments
