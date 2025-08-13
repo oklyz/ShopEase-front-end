@@ -32,7 +32,7 @@ const ItemForm = ({text}) => {
     formData.append("name",formValues.name)
     formData.append("description",formValues.description)
     formData.append("category",formValues.category)
-    formData.append("price",parseInt(formValues.price))
+    formData.append("price", parseFloat(formValues.price))
     formData.append("costPrice",parseInt(formValues.costPrice))
     formData.append("quantity",parseInt(formValues.quantity))
     formData.append("image",formValues.image)
@@ -45,7 +45,7 @@ const ItemForm = ({text}) => {
 
 
     setFormValues(initialState)
-    // navigate('/adminitems')
+    navigate('/adminitems')
   }
 
   return (
@@ -96,7 +96,7 @@ const ItemForm = ({text}) => {
             <input
               onChange={handleChange}
               id="price"
-              type="number"
+              type="text"
               min={0}
               value={formValues.price}
               required

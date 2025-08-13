@@ -14,30 +14,25 @@ const AdminItems = () => {
     getAllItem()
   }, [])
 
-
-
   return (
     <>
-      <div>
-        <Link className="dark-btn" to="/adminitems/new">
-          {' '}
-          add new product
-        </Link>
-      </div>
-      <br />
-      <br />
-      <div>
-        {items.length > 0 ? (
-          <>
-            {items.map((item) => {
-              return <AdminItemDetails key={item._id} item={item} />
-            })}
-          </>
-        ) : (
-          <>
-            <div>no Items!</div>
-          </>
-        )}
+      <div className="admin-items-container">
+        <div className="admin-items-header">
+          <Link className="dark-btn" to="/adminitems/new">
+            add new product
+          </Link>
+        </div>
+        <div className="admin-items-list">
+          {items.length > 0 ? (
+            <>
+              {items.map((item) => {
+                return <AdminItemDetails key={item._id} item={item} />
+              })}
+            </>
+          ) : (
+            <div className="no-items-message">no Items!</div>
+          )}
+        </div>
       </div>
     </>
   )
