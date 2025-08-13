@@ -6,6 +6,9 @@ import './style/itmeDetalis.css'
 import './style/commentsFrom.css'
 import './style/AdminItems.css'
 import './style/AdminItemDetails.css'
+import './style/login.css'
+import './style/item.css'
+import './style/checkOut.css'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -52,7 +55,7 @@ function App() {
 
           {/* customer routes */}
           {!user || user.role === 'customer' ? (
-            <>
+            <>link
               <Route path="/" element={<Home />}></Route>
               <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
               <Route path="/cart" element={<Cart />}></Route>
@@ -69,7 +72,6 @@ function App() {
               <Route path="/issue/:orderId" element={<Issueform />}></Route>
             </>
           ) : null}
-
           {/* admin routes */}
           {user && user.role === 'admin' ? (
             <>

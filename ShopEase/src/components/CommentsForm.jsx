@@ -35,6 +35,7 @@ const CommentsForm = ({itemId}) => {
             type="text" 
             name="description" 
             onChange={handleChange} 
+            placeholder="add comment"
             value={formvalues.description} 
             required/>
           </label>
@@ -44,6 +45,7 @@ const CommentsForm = ({itemId}) => {
             max={5}
             type="number" 
             name="rate" 
+            placeholder="rate"
             onChange={handleChange} 
             value={formvalues.rate} 
             required/>

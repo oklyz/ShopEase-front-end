@@ -63,15 +63,15 @@ const Home = () => {
       ) : (
         <div>
           {toggleMostSales ? (
-            <>
+            <div className='container-items'>
             <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
-            </>
+            </div>
           ) : 
-          <>
+        <div className='container-items'>
           {getitem.map((item) => (
             <Items item={item} key={item._id} />
           ))}
-          </>
+          </div>
           }
         </div>
       )}
