@@ -44,17 +44,24 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
 
           {/* customer routes */}
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/itemdetails/:itemId" element={<ItemDetails />}></Route>
-          <Route
-            path="/itemdetails/:itemId/:quantity"
-            element={<Checkout />}
-          ></Route>
-          <Route path="/contact" element={<ContactAs />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/issue/:orderId" element={<Issueform />}></Route>
+          {!user || user.role === 'customer' ? (
+            <>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/user-updata" element={<UserUpadataInfo />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
+              <Route
+                path="/itemdetails/:itemId"
+                element={<ItemDetails />}
+              ></Route>
+              <Route
+                path="/itemdetails/:itemId/:quantity"
+                element={<Checkout />}
+              ></Route>
+              <Route path="/contact" element={<ContactAs />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/issue/:orderId" element={<Issueform />}></Route>
+            </>
+          ) : null}
 
           {/* admin routes */}
           {user && user.role === 'admin' ? (
@@ -62,8 +69,14 @@ function App() {
               <Route path="/" element={<Dashboard />}></Route>
               <Route path="/issues" element={<Issues />}></Route>
               <Route path="/adminitems" element={<AdminItems />}></Route>
-              <Route path="/adminitems/new" element={<ItemForm text={"Create New Item"}/>}></Route>
-              <Route path='/adminitems/edit/:itemId' element={<ItemForm text={"Edit Item"} />} ></Route>
+              <Route
+                path="/adminitems/new"
+                element={<ItemForm text={'Create New Item'} />}
+              ></Route>
+              <Route
+                path="/adminitems/edit/:itemId"
+                element={<ItemForm text={'Edit Item'} />}
+              ></Route>
             </>
           ) : (
             <>
