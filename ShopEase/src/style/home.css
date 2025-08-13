@@ -1,0 +1,94 @@
+.search-div {
+  margin: 40px 0;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+.srch-div input {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.srch-div {
+  width: 300px;
+  height: 30px;
+}
+.bbtn-div {
+  background-color: black;
+}
+.search-button {
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  color: white;
+  cursor: pointer;
+}
+.items-container {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.single-item {
+  box-shadow: 1px 1px 10px 5px lightgray;
+  margin: 5px;
+  background-color: #f6ffff;
+  width: 280px;
+  border: 2px solid white;
+}
+
+.single-item:hover {
+  box-shadow: 1px 1px 10px 5px rgb(185, 185, 185);
+}
+.img-div {
+  width: 100%;
+  height: 300px;
+}
+.img-div img {
+  width: 100%;
+  height: 100%;
+}
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* most sales button  */
+.most-sales-btn-conrainer {
+  display: flex;
+  justify-content: end;
+  margin-right: 50px;
+}
+.most-sales-btn {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.most-sales-btn button {
+  background: none;
+  border: none;
+}
+
+.most-sales-btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.most-sales-btn button:hover {
+  color: white;
+  cursor: pointer;
+}

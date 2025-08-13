@@ -45,36 +45,30 @@ const Home = () => {
     setSearch(e.target.value)
   }
 
- 
   return (
     <>
-      <div>
-        <Search handleChange={handleChange} handleSubmit={handleSubmit} search={search}/>
+      <div className='search-div'>
+        <Search
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          search={search}
+        />
       </div>
-      <div>
-        <button onClick={handleSubmitMostSales}>MostSales</button>
+      <div className='most-sales-btn-conrainer'>
+        <div className="most-sales-btn">
+          <button onClick={handleSubmitMostSales}>MostSales</button>
+        </div>
       </div>
-      {toggleSearch ? (
-        <div>
-          {searchResult.map((item) => (
-            <Items item={item} key={item._id} />
-          ))}
-        </div>
-      ) : (
-        <div>
-          {toggleMostSales ? (
-            <div className='container-items'>
-            <MostSales handleSubmitMostSales={handleSubmitMostSales}/>
-            </div>
-          ) : 
-        <div className='container-items'>
-          {getitem.map((item) => (
-            <Items item={item} key={item._id} />
-          ))}
-          </div>
-          }
-        </div>
-      )}
+
+      <div className="items-container">
+        {toggleSearch ? (
+          searchResult.map((item) => <Items item={item} key={item._id} />)
+        ) : toggleMostSales ? (
+          <MostSales handleSubmitMostSales={handleSubmitMostSales} />
+        ) : (
+          getitem.map((item) => <Items item={item} key={item._id} />)
+        )}
+      </div>
     </>
   )
 }

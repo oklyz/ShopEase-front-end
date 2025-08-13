@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react"
-import { GetItems } from "../services/item"
-import Items from "./Items"
+import { useEffect, useState } from 'react'
+import { GetItems } from '../services/item'
+import Items from './Items'
 
 const MostSales = () => {
-  
   const [item, setItem] = useState([])
 
-  useEffect(()=> {
+  useEffect(() => {
     const getItem = async () => {
       const data = await GetItems()
       setItem(data)
     }
     getItem()
-  },[])
-  
-  
+  }, [])
+
   const sortedArray = (item) => {
     let newArray = item
     const sortedArray = newArray.sort((a, b) => {
@@ -25,13 +23,10 @@ const MostSales = () => {
 
   const sortedItem = sortedArray(item)
 
-
-
-  return(
+  return (
     <>
-      <h1>MostSales</h1>
       {sortedItem.map((item) => (
-            <Items item={item} key={item._id} />
+        <Items item={item} key={item._id} />
       ))}
     </>
   )

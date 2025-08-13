@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { getItemById } from '../services/item'
 import { createOrder } from '../services/order'
 import { createAddress } from '../services/address'
@@ -7,6 +7,7 @@ import UserContext from '../contexts/UserContext'
 import OrderOverallContext from '../contexts/OrderOverallContext'
 
 const Checkout = () => {
+  let navigate = useNavigate()
   const { itemId, quantity } = useParams()
   const { user } = useContext(UserContext)
   const { overall, setOverall } = useContext(OrderOverallContext)
@@ -69,6 +70,8 @@ const Checkout = () => {
     })
     setFormValues(initialState)
     setOverall(null)
+    navigate('/')
+    
   }
 
   return (
