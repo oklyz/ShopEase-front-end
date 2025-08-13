@@ -6,10 +6,33 @@ import { UserInfo, UserUpdata } from '../services/Auth'
 import UserAddresses from './UserAddresses'
 import { BASE_URL } from '../services/api'
 const UserUpadataInfo = () => {
+    let redirect = useNavigate()
   const [UserData, setUserData] = useState(null)
+  const [strongPasswordMsg,setStrongPasswordMsg]=useState(false)
+  const [matchPasswordMsg,setMatchPasswordMsg]=useState(false)
+const [flag,setFlag]=useState(false)
+  
+let passwordRegex=RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/)
+
+  const strongPasswordValidation=async (password)=>{
+    if(password.match(passwordRegex)){
+      setStrongPasswordMsg(false)
+    }
+    else{
+      setStrongPasswordMsg(true)
+    }
+  }
+  const matchPasswordValidation=async(password,confirmPassword)=>{
+    if(password===confirmPassword){
+      setMatchPasswordMsg(false)
+    }
+    else{
+      setMatchPasswordMsg(true)
+    }
+  }
+
 
   const { user } = useContext(UserContext)
-  const redirect = useNavigate()
 
   useEffect(() => {
     const userdata = async () => {
@@ -28,23 +51,36 @@ const UserUpadataInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     const updata = async (userId, data) => {
       await UserUpdata(userId, data)
+
     }
-    if (passwordRef.current.value !== ConformpasswordRef.current.value) {
-      alert('password not match!')
-    } else {
-      payload = {
+    const validation=async()=>{
+     await strongPasswordValidation(passwordRef.current.value)
+    await matchPasswordValidation(passwordRef.current.value,ConformpasswordRef.current.value)
+    setFlag(true)
+    }
+    validation()
+if(flag){
+  
+     if(!strongPasswordMsg && !matchPasswordMsg)
+{  
+
+    payload = {
         name: nameRef.current.value,
         email: emailRef.current.value,
         password: passwordRef.current.value,
         image: imageRef.current.files[0]
       }
       payload && updata(user.id, payload)
-      alert('The user updata')
-      redirect('/')
+              redirect('/')
+
     }
+}
+
+  
+
+    
   }
 
   return (
@@ -98,7 +134,9 @@ const UserUpadataInfo = () => {
                 ref={imageRef}
                 required
               />
-              <button type="submit">Submit</button>
+              <button type="submit"> Submit</button>
+             <h5>{strongPasswordMsg  ? "your password is weak try adding lower,uppercase numbers and special charcter and it is 8 charcter": null}</h5>
+             <h5>{matchPasswordMsg ? "your password does not match": null }</h5>
             </form>
           </div>
 
