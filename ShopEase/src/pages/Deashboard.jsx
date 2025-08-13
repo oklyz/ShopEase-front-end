@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { countUsers } from '../services/auth'
 import { countIssues } from '../services/issue'
 import { GetItems } from '../services/item'
+import { Chart as ChartJS, defaults } from 'chart.js/auto'
+import { Bar, Doughnut, Line } from 'react-chartjs-2'
 
 const Dashboard = () => {
   const [countCustomers, setCountCustomers] = useState(0)
@@ -80,32 +82,144 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>Dashboard...</div>
-      <h2>number of users: {countCustomers ? countCustomers : 0}</h2>
+      <div className="dash-card">
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">{countCustomers ? countCustomers : 0}</p>
+            <p class="card-para">Customers</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">
+              {countCustomerIssues ? countCustomerIssues : 0}
+            </p>
+            <p class="card-para">Issues</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">
+              $ {totalProfit ? Math.abs(totalProfit) : 0}
+            </p>
+            <p class="card-para">
+              {totalRevenue > totalCost ? 'Net Profit' : 'Net Loss'}
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">$ {totalRevenue ? totalRevenue : 0}</p>
+            <p class="card-para">Revenues</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <p class="card-title">$ {totalCost ? totalCost : 0}</p>
+            <p class="card-para">Costs</p>
+          </div>
+        </div>
+      </div>
 
-      <h2>number of Issues: {countCustomerIssues ? countCustomerIssues : 0}</h2>
-      <h2>total revenue: {totalRevenue ? totalRevenue : 0}</h2>
-      <h2>total cost: {totalCost ? totalCost : 0}</h2>
-      <h2>total profit: {totalProfit ? totalProfit : 0}</h2>
+      <div className="App">
+        <div className="dataCard revenueCard">
+          {items.length > 0 ? (
+            <Line
+              data={{
+                // labels: revenueData.map((data) => data.label),
+                labels: items.map((item) => item.name),
+                datasets: [
+                  {
+                    label: 'Revenue',
+                    data: items.map((item) => item.revenue),
+                    backgroundColor: '#064FF0',
+                    borderColor: '#064FF0'
+                  },
+                  {
+                    label: 'Cost',
+                    data: items.map((item) => item.cost),
+                    backgroundColor: '#FF3030',
+                    borderColor: '#FF3030'
+                  }
+                ]
+              }}
+              options={{
+                elements: {
+                  line: {
+                    tension: 0.5
+                  }
+                },
+                plugins: {
+                  title: {
+                    text: 'Monthly Revenue & Cost'
+                  }
+                }
+              }}
+            />
+          ) : null}
+        </div>
 
-      <br />
-      <br />
+        <div className="dataCard customerCard">
+          {items.length > 0 ? (
+            <Bar
+              data={{
+                labels: items.map((item) => item.name),
+                datasets: [
+                  {
+                    label: 'Count',
+                    data: items.map((item) => item.quantity),
+                    backgroundColor: [
+                      'rgba(43, 63, 229, 0.8)',
+                      'rgba(250, 192, 19, 0.8)',
+                      'rgba(253, 135, 135, 0.8)'
+                    ],
+                    borderRadius: 5
+                  }
+                ]
+              }}
+              options={{
+                plugins: {
+                  title: {
+                    text: 'Revenue Source'
+                  }
+                }
+              }}
+            />
+          ) : null}
+        </div>
 
-      <div>
-        <h1>each Item profit:</h1>
-        {items.length > 0
-          ? items.map((item, index) => (
-              <div key={item._id}>
-                <p>
-                  {index + 1}- item name: <b>{item.name}</b>{' '}
-                  <span>
-                    {' '}
-                    and profit: <b>{item.profit}</b>
-                  </span>
-                </p>
-              </div>
-            ))
-          : null}
+        <div className="dataCard categoryCard">
+          {items.length > 0 ? (
+            <Doughnut
+              data={{
+                labels: items.map((item) => item.name),
+                datasets: [
+                  {
+                    label: 'Quantity Item Sold',
+                    data: items.map((item) => item.numberOfSold),
+                    backgroundColor: [
+                      'rgba(43, 63, 229, 0.8)',
+                      'rgba(250, 192, 19, 0.8)',
+                      'rgba(253, 135, 135, 0.8)'
+                    ],
+                    borderColor: [
+                      'rgba(43, 63, 229, 0.8)',
+                      'rgba(250, 192, 19, 0.8)',
+                      'rgba(253, 135, 135, 0.8)'
+                    ]
+                  }
+                ]
+              }}
+              options={{
+                plugins: {
+                  title: {
+                    text: 'Revenue Sources'
+                  }
+                }
+              }}
+            />
+          ) : null}
+        </div>
       </div>
     </>
   )
