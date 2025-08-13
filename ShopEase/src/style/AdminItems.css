@@ -4,7 +4,7 @@
   padding: 24px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .admin-items-header {
@@ -16,7 +16,8 @@
 .admin-items-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  justify-content: center;
+  gap: 30px;
   margin-top: 24px;
 }
 
@@ -25,4 +26,18 @@
   text-align: center;
   margin-top: 40px;
   font-size: 1.2rem;
+}
+.admin-items-header {
+}
+.dark-btn {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 5px 10px;
+  color: black;
+  border-radius: 5px;
+}
+
+.dark-btn:hover {
+  color: white;
+  background-color: black;
 }

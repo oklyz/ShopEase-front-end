@@ -109,7 +109,7 @@ header nav a {
 }
 
 .dataCard {
-  background-color: #efefef;
+  background-color: white;
   border-radius: 0.5em;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 1em;
@@ -131,11 +131,16 @@ header nav a {
 }
 
 /* From Uiverse.io by gharsh11032000 */
+.dash-cont {
+}
 .dash-card {
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   margin-top: 20px;
+  justify-content: center;
+  margin: 20px auto 0 auto;
 }
 
 .card {
