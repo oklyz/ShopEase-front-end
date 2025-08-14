@@ -1,0 +1,89 @@
+/* SimpleContactUs.css */
+
+.simple-contact-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.simple-contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.simple-contact-header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.simple-contact-header p {
+  color: #7f8c8d;
+}
+
+.simple-contact-content {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.simple-contact-info h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.simple-contact-info p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.simple-contact-methods {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.simple-contact-methods h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.contact-method i {
+  color: #3498db;
+  width: 20px;
+  text-align: center;
+}
+
+.simple-contact-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fff8e1;
+  border-left: 4px solid #ffc107;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .simple-contact-container {
+    padding: 0.5rem;
+  }
+
+  .simple-contact-content {
+    padding: 1rem;
+  }
+}
