@@ -10,3 +10,10 @@ export const CreateComment = async (data) => {
   }
 }
 
+export const DeleteComment = async (commentId) => {
+  try {
+    await Client.delete(`/comment/delete/${commentId}`)
+  } catch (error) {
+    
+  }
+}
