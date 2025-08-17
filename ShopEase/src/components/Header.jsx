@@ -26,7 +26,7 @@ const Nav = () => {
     <nav>
       <Link to="/">Home</Link>
       <Link to="">Items</Link>
-      <Link to="">Contact us</Link>
+      <Link to="/contact">Contact us</Link>
       <Link to="/cart">Cart</Link>
       <Link to="/login" onClick={handleLogOut}>
         log out
@@ -39,7 +39,7 @@ const Nav = () => {
     <nav>
       <Link to="/">Home</Link>
       <Link to="">Items</Link>
-      <Link to="">Contact</Link>
+      <Link to="/contact">Contact</Link>
       <Link to="/login">log in</Link>
       <Link to="/register">Sign up</Link>
     </nav>
