@@ -11,7 +11,6 @@ const ItemDetails = () => {
   let cartList = []
   let { itemId } = useParams()
   const { cart, setCart } = useContext(CartContext)
-  // const [cart, setCart] = useState([])
   const { user } = useContext(UserContext)
   const [item, setItem] = useState(null)
   let [quantity, setQuantity] = useState(0)

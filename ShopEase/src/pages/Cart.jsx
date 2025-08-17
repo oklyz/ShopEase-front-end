@@ -17,10 +17,6 @@ const Cart = () => {
     cc()
   }, [])
 
-  const removeItemCart = () => {}
-
-  // myCart.length > 0 && console.log(myCart[0]._id)
-
   return (
     <>
       {myCart.length > 0 ? (

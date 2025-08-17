@@ -24,43 +24,6 @@ const Login = () => {
   }
 
   return (
-    // <div>
-    //   <div className="container-form">
-    //     <div className="container-card">
-    //       <form onSubmit={handleSubmit} className="register-form">
-    //         <p className="title">Login</p>
-    //         <label htmlFor="email">
-    //           <input
-    //             className="input"
-    //             id="email"
-    //             type="email"
-    //             onChange={handleChange}
-    //             value={formValues.email}
-    //             required
-    //             autoComplete="email"
-    //             name="email"
-    //           />
-    //           <span>Email</span>
-    //         </label>
-    //         <label htmlFor="password">
-    //           <input
-    //             className="input"
-    //             onChange={handleChange}
-    //             type="password"
-    //             id="password"
-    //             value={formValues.password}
-    //             required
-    //             name="password"
-    //           />
-    //           <span>Password</span>
-    //         </label>
-    //         <button disabled={!formValues.email || !formValues.password}>
-    //           Sign In
-    //         </button>
-    //       </form>
-    //     </div>
-    //   </div>
-    // </div>
     <div className="register-form">
       <form onSubmit={handleSubmit} className="form">
         <span className="input-span">

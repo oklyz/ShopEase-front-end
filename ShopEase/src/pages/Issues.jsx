@@ -13,7 +13,7 @@ const Issues = () => {
     getAllIssues()
   }, [])
 
-  issues.length > 0 && console.log(issues)
+
 
   return (
     <>

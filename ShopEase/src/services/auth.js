@@ -34,8 +34,6 @@ export const UserUpdata = async (userId, data) => {
     const config = { headers: { 'Content-Type': 'multipart/form-data' } }
     const res = await Client.put(`/auth/${userId}`, data, config)
     // Set the current signed in users token to localStorage
-    // Set the current signed in users token to localStorage
-
     return res.data
   } catch (error) {
     throw error

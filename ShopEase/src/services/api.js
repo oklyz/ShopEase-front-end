@@ -18,7 +18,7 @@ Client.interceptors.request.use(
     // Provides the token to each request that passes through axios
   },
   async (error) => {
-    console.log({ msg: 'Axios Interceptor Error!', error })
+    console.log({ msg: 'Axios Interceptor Error!'})
     throw error
   }
 )
