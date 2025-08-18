@@ -4,9 +4,11 @@
 #### Desciption
 An e-commerce website is a digital platform that enables individuals to buy goods over the internet. It provides an online storefront where customers can browse products, view detailed descriptions, compare prices, and complete purchases through secure payment gateways. E-commerce websites can serve various industries, ranging from retail and fashion to electronics and digital products, offering customers the convenience of shopping anytime and anywhere.
 
+### [Back-End](https://github.com/oklyz/ShopEase-back-end)
+
 ## Deployment version
 
-[Here](#)
+[website link](#)
 
 ## Key features:
 -  Product search and filtering
@@ -50,11 +52,6 @@ An e-commerce website is a digital platform that enables individuals to buy good
 - Add order tracking system
 - Add payment methods
 - Complete cart feature
----
-
-### Entity Relationship Diagram
-
-![ERD](./ShopEase/public/App.png)
 
 ---
 
@@ -62,6 +59,20 @@ An e-commerce website is a digital platform that enables individuals to buy good
 
 ![CD](./ShopEase/public/App.png)
 
+## Screen shots
+![](./ShopEase//public//image%20(2).png)
+![](./ShopEase//public//image%20(3).png)
+![](./ShopEase//public//image%20(4).png)
+![](./ShopEase//public//image%20(5).png)
+![](./ShopEase//public//image%20(6).png)
+
 ### _Technology Stack:_
 
-- **Front-end:** [React](https://react.dev/learn), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [Axios](https://axios-http.com/docs/intro), [Chart.js](https://www.chartjs.org/docs/latest/), [Js-cookie](https://www.npmjs.com/package/js-cookie),
+- **react**
+- **CSS**
+- **HTML**
+- **Axios**
+
+### Credits
+- [Chart.js](https://www.chartjs.org/)
+- [uiuniverse](https://uiverse.io/)

@@ -26,7 +26,6 @@ const Issues = () => {
               <div className="actions">
                 <span>Order ID:</span>
                 <button className="pref">{issue.order}</button>
-                {/* <button className="accept">Accept</button> */}
               </div>
             </div>
           ))}
