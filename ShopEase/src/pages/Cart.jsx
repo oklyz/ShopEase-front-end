@@ -22,11 +22,6 @@ const Cart = () => {
       {myCart.length > 0 ? (
         <div className="items-container">
           {myCart.map((item) => (
-            // <div key={item._id}>
-            //   <h3>{item.name}</h3>
-            //   <h3>{item.price}</h3>
-            //   <h3>{item.quantityOrdered}</h3>
-            // </div>
             <Items key={item._id} item={item} />
           ))}
         </div>

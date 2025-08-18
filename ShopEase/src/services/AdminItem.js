@@ -3,7 +3,6 @@ import Client from './api'
 export const createItem = async (data) => {
   try {
        const config = {headers: {'Content-Type': 'multipart/form-data'}}
-       
     const res = await Client.post('/item/new', data,config)
     
 

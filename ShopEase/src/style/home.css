@@ -18,14 +18,16 @@
 }
 .bbtn-div {
   background-color: black;
+  margin-left: 25px;
 }
-.search-button {
+#sss {
   border: none;
   background: none;
   width: 100%;
   height: 100%;
   color: white;
   cursor: pointer;
+  margin-top: 0;
 }
 .items-container {
   margin-top: 30px;
@@ -92,3 +94,11 @@
   color: white;
   cursor: pointer;
 }
+
+#id {
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
