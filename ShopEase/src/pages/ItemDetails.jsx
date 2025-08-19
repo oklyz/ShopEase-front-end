@@ -6,6 +6,7 @@ import { getItemById } from '../services/item'
 import CommentsForm from '../components/CommentsForm'
 import DisplayComments from '../components/DisplayComments'
 import Cookies from 'js-cookie'
+import { BASE_URL } from '../globals'
 
 const ItemDetails = () => {
   let cartList = []
@@ -40,7 +41,7 @@ const ItemDetails = () => {
           <>
             <div>
               <img
-                src={`http://localhost:3001/images/${item.image}`}
+                src={`${BASE_URL}/images/${item.image}`}
                 alt="itemImage"
                 width={100}
                 height={100}

@@ -5,6 +5,7 @@ import { createOrder } from '../services/order'
 import { createAddress } from '../services/address'
 import UserContext from '../contexts/UserContext'
 import OrderOverallContext from '../contexts/OrderOverallContext'
+import { BASE_URL } from '../globals'
 
 const Checkout = () => {
   let navigate = useNavigate()
@@ -81,7 +82,7 @@ const Checkout = () => {
      
           <div className="checkout-summary">
             <img
-              src={`http://localhost:3001/images/${overall.image}`}
+              src={`${BASE_URL}/images/${overall.image}`}
               alt="itemImage"
               width={150}
               height={150}

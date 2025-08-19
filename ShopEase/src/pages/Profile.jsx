@@ -3,7 +3,8 @@ import { UserInfo } from '../services/Auth'
 import { useEffect, useContext, useState } from 'react'
 import OrderList from '../components/OrderList'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from '../services/api'
+
+import { BASE_URL } from '../globals'
 const Profile = () => {
   const [UserData, setUserData] = useState(null)
   const { user } = useContext(UserContext)
