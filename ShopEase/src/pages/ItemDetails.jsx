@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import UserContext from '../contexts/UserContext'
 import CartContext from '../contexts/CartContext'
@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import { BASE_URL } from '../globals'
 
 const ItemDetails = () => {
+  const navigate = useNavigate()
   let cartList = []
   let { itemId } = useParams()
   const { cart, setCart } = useContext(CartContext)
@@ -34,6 +35,7 @@ const ItemDetails = () => {
     setCart([...cart, myCart])
   }
 
+  user ? null : navigate('/login')
   return (
     <div className="itmeDetalis-container">
       <div>

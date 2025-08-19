@@ -14,6 +14,7 @@ const Checkout = () => {
   const { overall, setOverall } = useContext(OrderOverallContext)
 
   useEffect(() => {
+    
     const getItem = async () => {
       const itemById = await getItemById(itemId)
       setOverall({
