@@ -4,7 +4,7 @@ import UserContext from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { UserInfo, UserUpdata } from '../services/Auth'
 import UserAddresses from './UserAddresses'
-import { BASE_URL } from '../services/api'
+import { BASE_URL } from '../globals'
 const UserUpadataInfo = () => {
     let redirect = useNavigate()
   const [UserData, setUserData] = useState(null)
