@@ -20,14 +20,14 @@ export const getItemById=async (itemId)=>{
 
   export const deleteItem=async(itemId)=>{
     try {
-      await Client.delete(`/item/delete/${itemId}`)
+      await Client.delete(`/item/${itemId}`)
     } catch (error) {
       throw error
     }
   }
   export const editItem=async(itemId,data)=>{
     try {
-      await Client.put(`/item/update/${itemId}`,data)
+      await Client.put(`/item/${itemId}`,data)
       
     } catch (error) {
       throw error

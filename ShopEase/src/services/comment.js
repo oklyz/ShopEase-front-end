@@ -2,7 +2,7 @@ import Client from "./api"
 
 export const CreateComment = async (data) => {
   try {
-    const res = Client.post("/comment/new", data)
+    const res = Client.post("/comment", data)
     return res.data
     
   } catch (error) {
@@ -12,7 +12,7 @@ export const CreateComment = async (data) => {
 
 export const DeleteComment = async (commentId) => {
   try {
-    await Client.delete(`/comment/delete/${commentId}`)
+    await Client.delete(`/comment/${commentId}`)
   } catch (error) {
     
   }

@@ -18,7 +18,7 @@ export const countIssues = async () => {
 }
 export const createIssue = async (data) => {
   try {
-    await Client.post('/contact/new', data)
+    await Client.post('/contact', data)
   } catch (error) {
     throw error
   }

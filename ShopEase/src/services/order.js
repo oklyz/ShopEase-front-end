@@ -12,7 +12,7 @@ export const getUserOrders = async (data) => {
 
 export const createOrder = async (data) => {
   try {
-    const res = await Client.post('/order/new', data)
+    const res = await Client.post('/order', data)
 
   } catch (error) {
     throw error
