@@ -35,7 +35,6 @@ const ItemDetails = () => {
     setCart([...cart, myCart])
   }
 
-  user ? null : navigate('/login')
   return (
     <div className="itmeDetalis-container">
       <div>
