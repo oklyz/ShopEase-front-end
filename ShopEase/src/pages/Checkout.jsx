@@ -12,8 +12,10 @@ const Checkout = () => {
   const { itemId, quantity } = useParams()
   const { user } = useContext(UserContext)
   const { overall, setOverall } = useContext(OrderOverallContext)
+  user ? null : navigate('/login')
 
   useEffect(() => {
+    
     const getItem = async () => {
       const itemById = await getItemById(itemId)
       setOverall({
