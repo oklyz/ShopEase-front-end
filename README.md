@@ -8,7 +8,7 @@ An e-commerce website is a digital platform that enables individuals to buy good
 
 ## Deployment version
 
-[website link](#)
+[website link](https://shopease.surge.sh/)
 
 ## Key features:
 -  Product search and filtering
